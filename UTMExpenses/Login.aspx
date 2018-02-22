@@ -10,8 +10,8 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
-                <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control">UserName</asp:TextBox>
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control">Password</asp:TextBox>
+                <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control">User Name</asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control">Password!</asp:TextBox>
                 <asp:Button ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block btn-signin" runat="server" Text="Login" />
             </form>
             <!-- /form -->
