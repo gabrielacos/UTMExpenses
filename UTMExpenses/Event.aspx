@@ -24,8 +24,11 @@ b. You must design a Report that lists All the Events by Type.-->
     <script>$("#liEvents").addClass("active");</script>
     <div class="row">
 
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <h5>Select Events</h5>
+        </div>
+        <div class="col-lg-4">
+            <asp:Button ID="btnCreateEvent" runat="server" Text="Create New Event" OnClick="btnCreateEvent_Click" CssClass="btn btn-primary" />
         </div>
     </div>
     <div class="row">
@@ -40,8 +43,9 @@ b. You must design a Report that lists All the Events by Type.-->
     <div class="row">
         <div class="col-lg-12">
 
-            <asp:GridView ID="gvEvents" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource">
+            <asp:GridView ID="gvEvents" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource" OnSelectedIndexChanged="gvEvents_SelectedIndexChanged" OnPreRender="gvEvents_PreRender">
                 <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" InsertVisible="False" ReadOnly="True" SortExpression="EventID" />
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
@@ -76,7 +80,7 @@ b. You must design a Report that lists All the Events by Type.-->
         </div>
         <!-- Text and a Label Control to display totals -->
         <div class="col-lg-8">
-           
+            <asp:Label ID="lblTotal" runat="server"></asp:Label>
         </div>
         <div class="col-lg-2">
             &nbsp;

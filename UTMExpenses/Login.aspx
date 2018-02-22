@@ -6,19 +6,30 @@ a. You must design a window that will allow the user to input the login informat
 to be authenticated using the data on the UTMUsers table -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <div class="container">
         <div class="card card-container">
-            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+
             <img id="profile-img" class="profile-img-card" src="Resources/Logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
                 <span id="reauth-email" class="reauth-email"></span>
-                <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control">UserName</asp:TextBox>
-                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control">Password</asp:TextBox>
+                <h5>UserName</h5>
+                <asp:TextBox ID="txtUser" runat="server" CssClass="form-control "></asp:TextBox>
+
+                <asp:RequiredFieldValidator ID="reqUsername" runat="server"
+                    ControlToValidate="txtUser" ErrorMessage="Required."
+                    ValidationGroup="val1">
+                </asp:RequiredFieldValidator>
+                <h5>Password</h5>
+                <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control">Password</asp:TextBox>
+
+                <asp:RequiredFieldValidator ID="reqPassword" runat="server"
+                    ControlToValidate="txtPass" ErrorMessage="Required."
+                    ValidationGroup="val1"></asp:RequiredFieldValidator>
                 <asp:Button ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block btn-signin" runat="server" Text="Login" />
             </form>
-            <!-- /form -->
         </div>
-        <!-- /card-container -->
     </div>
 </asp:Content>
