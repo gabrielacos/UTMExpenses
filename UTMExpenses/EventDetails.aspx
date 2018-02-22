@@ -19,7 +19,7 @@
             &nbsp;
         </div>
         <div class="col-lg-8">
-            <asp:DetailsView ID="dvEventsDetails" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="SqlDataSource1">
+            <asp:DetailsView ID="dvEventsDetails" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="SqlDataSource1" AllowPaging="True">
                 <Fields>
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
@@ -41,7 +41,8 @@
                     <asp:CommandField ShowInsertButton="True" />
                 </Fields>
             </asp:DetailsView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status, created_by, creation_date, updated_by FROM UTM.TravelEvent WHERE @parmEventID) " InsertCommand="INSERT INTO UTM.TravelEvent(Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status, created_by, creation_date, updated_by, update_date) VALUES ('INS_EVENT_NAME', 'INS_LOCATEION', 'INS_LOCATIONTYPE', @INSEVENTTYPE, @INSCITY, @INSSTATE, @INSCOUNTRY, '@INSORGANIZATION', @INSEVENTURL, @INSSTARTDATE, @ENDDATE, @ACADEMISSSESION, @EVENT_STATUS, @RECORD_STATUS, @CREATED_BY, @CREATION_DATE, @UPDATED_BY, @UPDATE_DATE)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status, created_by, creation_date, updated_by FROM UTM.TravelEvent
+WHERE @parmEventID) " InsertCommand="INSERT INTO UTM.TravelEvent(Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status, created_by, creation_date, updated_by, update_date) VALUES ('INS_EVENT_NAME', 'INS_LOCATEION', 'INS_LOCATIONTYPE', @INSEVENTTYPE, @INSCITY, @INSSTATE, @INSCOUNTRY, '@INSORGANIZATION', @INSEVENTURL, @INSSTARTDATE, @ENDDATE, @ACADEMISSSESION, @EVENT_STATUS, @RECORD_STATUS, @CREATED_BY, @CREATION_DATE, @UPDATED_BY, @UPDATE_DATE)">
                 <InsertParameters>
                     <asp:Parameter Name="INSEVENTTYPE" />
                     <asp:Parameter Name="INSCITY" />

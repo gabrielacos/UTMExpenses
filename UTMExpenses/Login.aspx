@@ -14,7 +14,7 @@ to be authenticated using the data on the UTMUsers table -->
             <img id="profile-img" class="profile-img-card" src="Resources/Logo.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
+
                 <h5>UserName</h5>
                 <asp:TextBox ID="txtUser" runat="server" CssClass="form-control "></asp:TextBox>
 
@@ -23,12 +23,12 @@ to be authenticated using the data on the UTMUsers table -->
                     ValidationGroup="val1">
                 </asp:RequiredFieldValidator>
                 <h5>Password</h5>
-                <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control">Password</asp:TextBox>
+                <asp:TextBox ID="txtPass" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="reqPassword" runat="server"
                     ControlToValidate="txtPass" ErrorMessage="Required."
                     ValidationGroup="val1"></asp:RequiredFieldValidator>
-                <asp:Button ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block btn-signin" runat="server" Text="Login" />
+                <asp:Button ID="btnLogin" CssClass="btn btn-lg btn-primary btn-block btn-signin" runat="server" Text="Login" OnClick="btnLogin_Click1" />
             </form>
         </div>
     </div>

@@ -42,7 +42,17 @@ namespace UTMExpenses
             }
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        //method to display error message box using JAVASCRIPT
+        private void MsgWindow(string sMessage)
+        {
+            string msg;
+            msg = "<script language='javascript'>";
+            msg += "alert('" + sMessage + "');";
+            msg += "<" + "/script>";
+            Response.Write(msg);
+        }
+
+        protected void btnLogin_Click1(object sender, EventArgs e)
         {
             // Declare and assing values to the authentication variables
             string struser = txtUser.Text;
@@ -60,16 +70,6 @@ namespace UTMExpenses
                 // Show message using Javascript
                 MsgWindow("ERROR - Invalid autentication information");
             }
-        }
-
-        //method to display error message box using JAVASCRIPT
-        private void MsgWindow(string sMessage)
-        {
-            string msg;
-            msg = "<script language='javascript'>";
-            msg += "alert('" + sMessage + "');";
-            msg += "<" + "/script>";
-            Response.Write(msg);
         }
     }
 }
