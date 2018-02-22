@@ -19,9 +19,9 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="default.aspx">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
+                        <li><a href="Event.aspx">Event</a></li>
+                        <li><a href="Students.aspx">Students</a></li>
+                        <li><a href="TravelExpenses.aspx">Travel Expense</a></li>
                     </ul>
                 </div>
             </nav>
