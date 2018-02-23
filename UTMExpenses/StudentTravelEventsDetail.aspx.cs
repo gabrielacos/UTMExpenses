@@ -11,7 +11,14 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["ssStudentTravelEvents"] == null)
+            {
+                dlSTTravelEvents.DefaultMode = DetailsViewMode.Insert;
+            }
+            else
+            {
+                dlSTTravelEvents.DefaultMode = DetailsViewMode.ReadOnly;
+            }
         }
     }
 }

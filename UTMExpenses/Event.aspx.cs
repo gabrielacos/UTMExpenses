@@ -28,6 +28,7 @@ namespace UTMExpenses
 
         protected void btnCreateEvent_Click(object sender, EventArgs e)
         {
+            Session.Remove("ssEventID");
             Response.Redirect("EventDetails.aspx");
         }
     }

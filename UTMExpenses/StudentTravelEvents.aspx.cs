@@ -25,5 +25,11 @@ namespace UTMExpenses
             // Redirect to open the ProductDetails page
             Response.Redirect("StudentTravelEventsDetails.aspx");
         }
+
+        protected void btnStudentTravelEvent_Click(object sender, EventArgs e)
+        {
+            Session.Remove("ssStudentTravelEvents");
+            Response.Redirect("StudentTravelEvents.aspx");
+        }
     }
 }

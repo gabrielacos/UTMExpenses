@@ -18,8 +18,12 @@
     <script>$("#liStudents").addClass("active");</script>
     <div class="row">
 
-        <div class="col-lg-12">
-            <h5>Select Events</h5>
+         <div class="col-lg-8">
+            <h5>Select Student</h5>
+        </div>
+        
+        <div class="col-lg-4">
+            <asp:Button ID="btnRegisterStudent" runat="server" Text="Register New Student"  CssClass="btn btn-primary" OnClick="btnRegisterStudent_Click" />
         </div>
     </div>
     <div class="row">

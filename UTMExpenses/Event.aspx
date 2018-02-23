@@ -27,6 +27,7 @@ b. You must design a Report that lists All the Events by Type.-->
         <div class="col-lg-8">
             <h5>Select Events</h5>
         </div>
+        
         <div class="col-lg-4">
             <asp:Button ID="btnCreateEvent" runat="server" Text="Create New Event" OnClick="btnCreateEvent_Click" CssClass="btn btn-primary" />
         </div>

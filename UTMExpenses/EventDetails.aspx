@@ -19,7 +19,7 @@
             &nbsp;
         </div>
         <div class="col-lg-8">
-            <asp:DetailsView ID="dvEventsDetails" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="SqlDataSource1" AllowPaging="True">
+            <asp:DetailsView ID="dvEventsDetails" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" Visible="true" DataSourceID="SqlDataSource1" AllowPaging="True">
                 <Fields>
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
