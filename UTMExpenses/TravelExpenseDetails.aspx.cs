@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace UTMExpenses
 {
-    public partial class StudentDetails : System.Web.UI.Page
+    public partial class TravelExpenseDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ssStudentID"] == null)
+            if (Session["ssStudentTravelEvents"] == null)
             {
-                dvStudentsDetails.DefaultMode = DetailsViewMode.Insert;
+                dvTravelExpenseDetails.DefaultMode = DetailsViewMode.Insert;
             }
             else
             {
-                dvStudentsDetails.DefaultMode = DetailsViewMode.ReadOnly;
+                dvTravelExpenseDetails.DefaultMode = DetailsViewMode.ReadOnly;
             }
         }
     }

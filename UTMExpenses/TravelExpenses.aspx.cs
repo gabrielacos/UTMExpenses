@@ -13,5 +13,11 @@ namespace UTMExpenses
         {
 
         }
+
+        protected void btnRegisterStudent_Click(object sender, EventArgs e)
+        {
+            Session.Remove("ssTraveExpenses");
+            Response.Redirect("TravelExpenseDetails.aspx");
+        }
     }
 }

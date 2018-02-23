@@ -114,6 +114,7 @@
     <Content Include="Instrucciones\Parte 2.txt" />
     <Content Include="StudentTravelEvents.aspx" />
     <Content Include="StudentTravelEventsDetail.aspx" />
+    <Content Include="TravelExpenseDetails.aspx" />
     <Content Include="TravelExpenses.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="StudentTravelEventsDetail.aspx.designer.cs">
       <DependentUpon>StudentTravelEventsDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TravelExpenseDetails.aspx.cs">
+      <DependentUpon>TravelExpenseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TravelExpenseDetails.aspx.designer.cs">
+      <DependentUpon>TravelExpenseDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TravelExpenses.aspx.cs">
       <DependentUpon>TravelExpenses.aspx</DependentUpon>
