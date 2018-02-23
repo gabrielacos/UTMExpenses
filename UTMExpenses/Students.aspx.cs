@@ -11,7 +11,14 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        protected void gvStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Assign value to a session variable from the selected row on the GridView
+            Session["ssStudent"] = gvStudents.SelectedValue;
+            // Redirect to open the ProductDetails page
+            Response.Redirect("StudentDetails.aspx");
         }
     }
 }

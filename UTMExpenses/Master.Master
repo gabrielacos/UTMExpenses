@@ -18,10 +18,11 @@
                         <a class="navbar-brand" href="Default.aspx">UTM Expenses</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="Default.aspx">Informes</a></li>
+                        <li><a href="Default.aspx">Informes</a></li>
                         <li><a href="Event.aspx" id="liEvent">Event</a></li>
                         <li><a href="Students.aspx" id="liStudents">Students</a></li>
                         <li><a href="TravelExpenses.aspx" id="liTravelExpenses">Travel Expense</a></li>
+                        <li><a href="TravelEvents" id="liStudentTravels">Travel Expense</a></li>
                     </ul>
                 </div>
             </nav>
