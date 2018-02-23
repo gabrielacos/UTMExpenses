@@ -12,18 +12,21 @@ namespace UTMExpenses
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Session["ssEventID"] == null)
-                    {
-                    dvEventsDetails.DefaultMode = DetailsViewMode.Insert;
-                }
-                else
-                {
-                    dvEventsDetails.DefaultMode = DetailsViewMode.ReadOnly;
-                }
-            
+               
            
         }
 
-     
+        protected void dvEventsDetails_PreRender(object sender, EventArgs e)
+        {
+            if (Session["ssEventID"] == null)
+            {
+                dvEventsDetails.DefaultMode = DetailsViewMode.Insert;
+            }
+            else
+            {
+                dvEventsDetails.DefaultMode = DetailsViewMode.ReadOnly;
+            }
+
+        }
     }
 }
