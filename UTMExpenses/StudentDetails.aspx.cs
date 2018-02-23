@@ -11,14 +11,15 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ssStudentID"] == null)
-            {
-                dvStudentsDetails.DefaultMode = DetailsViewMode.Insert;
-            }
-            else
-            {
-                dvStudentsDetails.DefaultMode = DetailsViewMode.ReadOnly;
-            }
+            ////*if (Session["ssStudentID"] == null)
+            //{
+               
+            //    dvStudentsDetails.DefaultMode = DetailsViewMode.Insert;
+            //}
+            //else
+            //{
+            //    dvStudentsDetails.DefaultMode = DetailsViewMode.ReadOnly;
+            //}//
         }
     }
 }

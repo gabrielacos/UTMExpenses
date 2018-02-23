@@ -18,14 +18,14 @@ namespace UTMExpenses
 
         protected void dvEventsDetails_PreRender(object sender, EventArgs e)
         {
-            if (Session["ssEventID"] == null)
-            {
-                dvEventsDetails.DefaultMode = DetailsViewMode.Insert;
-            }
-            else
-            {
-                dvEventsDetails.DefaultMode = DetailsViewMode.ReadOnly;
-            }
+            //if (Session["ssEventID"] == null)
+            //{
+            //    dvEventsDetails.DefaultMode = DetailsViewMode.Insert;
+            //}
+            //else
+            //{
+            //    dvEventsDetails.DefaultMode = DetailsViewMode.ReadOnly;
+            //}
 
         }
     }

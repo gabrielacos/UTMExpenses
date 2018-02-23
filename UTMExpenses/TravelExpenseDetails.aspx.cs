@@ -11,14 +11,14 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ssStudentTravelEvents"] == null)
-            {
-                dvTravelExpenseDetails.DefaultMode = DetailsViewMode.Insert;
-            }
-            else
-            {
-                dvTravelExpenseDetails.DefaultMode = DetailsViewMode.ReadOnly;
-            }
+            //if (Session["ssStudentTravelEvents"] == null)
+            //{
+            //    dvTravelExpenseDetails.DefaultMode = DetailsViewMode.Insert;
+            //}
+            //else
+            //{
+            //    dvTravelExpenseDetails.DefaultMode = DetailsViewMode.ReadOnly;
+            //}
         }
     }
 }
