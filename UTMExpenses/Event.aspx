@@ -9,9 +9,8 @@ event, and calculate and display total count of the displayed Events.
 b. You must design a Report that lists All the Events by Type.-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
-    
+
         <asp:Label ID="lblMessage" runat="server" Text="" ></asp:Label>
-   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">

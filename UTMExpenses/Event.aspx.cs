@@ -21,16 +21,6 @@ namespace UTMExpenses
                 Session["ssMessage"] = " Authorized users only; Please login";
                 Response.Redirect("Default.aspx");
             }
-            //else
-            //{
-            //    //Display Username and Logout link
-            //    HyperLink lkLogin = Master.FindControl("lkLogin") as HyperLink;
-            //    HyperLink lkLogout = Master.FindControl("lkLogout") as HyperLink;
-            //    lkLogin.Text = "Hi " + Session["ssUsr"] + "!";
-            //    lkLogin.NavigateUrl = "";
-            //    lkLogout.Text = "Logout";
-            //    lkLogout.NavigateUrl = "~/Logout.aspx";
-            //}
         }
 
         private void PageHeadings()
@@ -65,8 +55,8 @@ namespace UTMExpenses
 
         protected void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            Session.Remove("ssTraveExpenses");
-            Response.Redirect("EventDetails.aspx?pcode=&act=c");
+            Session.Remove("ssEventID");
+            Response.Redirect("EventDetails.aspx?ecode=&act=c");
         }
     }
 }

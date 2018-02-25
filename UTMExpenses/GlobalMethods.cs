@@ -53,6 +53,8 @@ namespace UTMExpenses
             sql_comm.Parameters.AddWithValue("@table", strTabla);
             sql_comm.Parameters.AddWithValue("@formname", strForma);
             conn_string.Open();
+            reader = sql_comm.ExecuteReader();
+            conn_string.Close();
         }
 
         // Funcion para Validar el user y password

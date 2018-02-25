@@ -38,7 +38,7 @@
             &nbsp;
         </div>
         <div class="col-lg-8">
-            <asp:DetailsView ID="dvEventDetails" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" AllowPaging="True" DataSourceID="dsEventDetails" AutoGenerateRows="False" DataKeyNames="EventID" OnItemDeleted="dvEventDetails_ItemDeleted" OnItemDeleting="dvEventDetails_ItemDeleting" OnItemInserting="dvEventDetails_ItemInserting" OnItemUpdated="dvEventDetails_ItemUpdated" OnItemUpdating="dvEventDetails_ItemUpdating" OnPreRender="dvEventDetails_PreRender" OnDataBound="dvEventDetails_DataBound" OnItemCommand="dvEventDetails_ItemCommand">
+            <asp:DetailsView ID="dvEventDetails" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" DataSourceID="dsEventDetails" AutoGenerateRows="False" DataKeyNames="EventID" OnItemDeleted="dvEventDetails_ItemDeleted" OnItemDeleting="dvEventDetails_ItemDeleting" OnItemInserting="dvEventDetails_ItemInserting" OnItemUpdated="dvEventDetails_ItemUpdated" OnItemUpdating="dvEventDetails_ItemUpdating" OnPreRender="dvEventDetails_PreRender" OnDataBound="dvEventDetails_DataBound" OnItemCommand="dvEventDetails_ItemCommand">
                 <Fields>
                     <asp:TemplateField HeaderText="EventID" SortExpression="EventID">
                         <EditItemTemplate>
@@ -81,7 +81,7 @@
                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="created_by" InsertVisible="False" SortExpression="created_by">
+                    <asp:TemplateField HeaderText="created_by" SortExpression="created_by">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
                         </EditItemTemplate>
@@ -92,7 +92,7 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("created_by") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="creation_date" InsertVisible="False" SortExpression="creation_date">
+                    <asp:TemplateField HeaderText="creation_date" SortExpression="creation_date">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtcreationdate" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
                         </EditItemTemplate>
@@ -103,7 +103,7 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("creation_date") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="updated_by" InsertVisible="False" SortExpression="updated_by">
+                    <asp:TemplateField HeaderText="updated_by" SortExpression="updated_by">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtupdatedby" runat="server" Text='<%# Bind("updated_by") %>'></asp:TextBox>
                         </EditItemTemplate>

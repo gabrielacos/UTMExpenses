@@ -15,25 +15,21 @@ namespace UTMExpenses
         public string StrssCSS = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Validate if the user is logged in or not
+            ValidateLogin();
+            // Verify Action
+            VerifyAction();
+        }
+
+        private void ValidateLogin()
+        {
             // Display Error Message when the user is not logged in
             if (Session["ssUsr"] == null)
             {
-                Session["ssMessage"] = " Authorized users only; Please login";
+                StrssMessage = " Authorized users only; Please login";
+                Session["ssMessage"] = StrssMessage;
                 Response.Redirect("Default.aspx");
             }
-
-            if (Session["ssEventID"] == null)
-            {
-                dvEventDetails.DefaultMode = DetailsViewMode.Insert;
-            }
-            else
-            {
-                dvEventDetails.DefaultMode = DetailsViewMode.ReadOnly;
-            }
-        }
-
-        protected void dvEventsDetails_PreRender(object sender, EventArgs e)
-        {
         }
 
         protected void dvEventDetails_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)
@@ -69,31 +65,31 @@ namespace UTMExpenses
             StrssCSS = "alert-success";
             //Asignar valor a las parametros del metodo WriteLogProc
             strEvento = "ItemInserted";
-            WriteLognRedirect();
+            //WriteLognRedirect();
         }
 
         //Validacion para TextBox
         protected void dvEventDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
         {
             string strErrorMessage = null;
-            double dblQtyOH;
+            string strCreatedBy;
             if (e.NewValues[2] == null)
             {
                 strErrorMessage += "Quantity on Hand cannot be blank";
                 e.Cancel = true;
             }
-            else
-            {
-                try
-                {
-                    dblQtyOH = Double.Parse(((TextBox)dvEventDetails.FindControl("txtQtyoh")).Text);
-                }
-                catch
-                {
-                    strErrorMessage += "Quantity on Hand not numeric";
-                    e.Cancel = true;
-                }
-            }
+            ////else
+            ////{
+            ////    try
+            ////    {
+            ////        strCreatedBy = Double.Parse(((TextBox)dvEventDetails.FindControl("txtcreatedby")).Text);
+            ////    }
+            ////    catch
+            ////    {
+            ////        strErrorMessage += "Quantity on Hand not numeric";
+            ////        e.Cancel = true;
+            ////    }
+            ////}
             if (e.Cancel == true)
             {
                 StrssMessage = "Please verify " + strErrorMessage;
@@ -106,7 +102,7 @@ namespace UTMExpenses
             StrssCSS = "alert-success";
             //Asignar valor a las parametros del metodo WriteLogProc
             strEvento = "ItemUpdated";
-            WriteLognRedirect();
+            ////WriteLognRedirect();
         }
 
         protected void dvEventDetails_PreRender(object sender, EventArgs e)
@@ -144,9 +140,9 @@ namespace UTMExpenses
         //Write to the Log Table and Redirect
         private void WriteLognRedirect()
         {
-            // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [Store].[spINSERTLog]
-            UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
-            //user autenticated - redirect to default page
+            //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [Store].[spINSERTLog]
+            //    UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
+            //    //user autenticated - redirect to default page
             Response.Redirect("Event.aspx");
         }
 
@@ -194,10 +190,10 @@ namespace UTMExpenses
                 else if (actionID == "d")
                 {
                     lblTitle.Text = "Delete Event";
-                }
-                lblInstructions.Text = "Record to be deleted. Are you sure you want to delete this record? Press Delete to eliminate this record or Cancel to return to the Event list";
+                    lblInstructions.Text = "Record to be deleted. Are you sure you want to delete this record? Press Delete to eliminate this record or Cancel to return to the Event list";
 
-                dvEventDetails.ChangeMode(DetailsViewMode.ReadOnly);
+                    dvEventDetails.ChangeMode(DetailsViewMode.ReadOnly);
+                }
             }
             else
             {
