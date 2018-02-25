@@ -21,24 +21,25 @@ namespace UTMExpenses
                 Session["ssMessage"] = " Authorized users only; Please login";
                 Response.Redirect("Default.aspx");
             }
-            else
-            {
-                //Display Username and Logout link
-                HyperLink lkLogin = Master.FindControl("lkLogin") as HyperLink;
-                HyperLink lkLogout = Master.FindControl("lkLogout") as HyperLink;
-                lkLogin.Text = "Hi " + Session["ssUsr"] + "!";
-                lkLogin.NavigateUrl = "";
-                lkLogout.Text = "Logout";
-                lkLogout.NavigateUrl = "~/Logout.aspx";
-            }
+            //else
+            //{
+            //    //Display Username and Logout link
+            //    HyperLink lkLogin = Master.FindControl("lkLogin") as HyperLink;
+            //    HyperLink lkLogout = Master.FindControl("lkLogout") as HyperLink;
+            //    lkLogin.Text = "Hi " + Session["ssUsr"] + "!";
+            //    lkLogin.NavigateUrl = "";
+            //    lkLogout.Text = "Logout";
+            //    lkLogout.NavigateUrl = "~/Logout.aspx";
+            //}
         }
 
         private void PageHeadings()
         {
-            // Control lblTitle from the MasterPage
-            Label lblTitle = Master.FindControl("lblTitle") as Label;
-            lblTitle.Text = "Products";
-            //   lblInstructions.Text = "<H4>To add a new product click the Add New Product button.To change the product information, select the edit link on the product line. To delete a product, select de delete link on the product line.</ H4 > ";
+            // Control lblTitleInstruction
+
+            Label lblTitleInstructions = Master.FindControl("lblTitleInstructions") as Label;
+
+            lblTitleInstructions.Text = "<H4>To add a new Event click the 'Create New Event' button.To change the product information, select the edit link on the Event line. To delete a Event, select de delete link on the Event line.</ H4 >";
             //Show the message from the sender page
             if (Session["ssMessage"] != null)
             {
@@ -64,6 +65,7 @@ namespace UTMExpenses
 
         protected void btnCreateEvent_Click(object sender, EventArgs e)
         {
+            Session.Remove("ssTraveExpenses");
             Response.Redirect("EventDetails.aspx?pcode=&act=c");
         }
     }

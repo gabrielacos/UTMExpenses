@@ -140,6 +140,7 @@
     <Compile Include="EventDetails.aspx.designer.cs">
       <DependentUpon>EventDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GlobalMethods.cs" />
     <Compile Include="StudentDetails.aspx.cs">
       <DependentUpon>StudentDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
