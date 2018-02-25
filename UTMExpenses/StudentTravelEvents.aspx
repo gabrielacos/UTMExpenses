@@ -26,14 +26,13 @@ existing Event for a Student, and calculate and display total count of the displ
     <script>$("#liTravelEvents").addClass("active");</script>
     <div class="row">
 
-         <div class="col-lg-8">
+        <div class="col-lg-8">
             <h5>Select Events</h5>
         </div>
-        
+
         <div class="col-lg-4">
-            <asp:Button ID="btnStudentTravelEvent" runat="server" Text="Register Travel Event"  CssClass="btn btn-primary" OnClick="btnStudentTravelEvent_Click" />
+            <asp:Button ID="btnStudentTravelEvent" runat="server" Text="Register Travel Event" CssClass="btn btn-primary" OnClick="btnStudentTravelEvent_Click" />
         </div>
-    
     </div>
     <div class="row">
         <div class="col-lg-2">
@@ -43,7 +42,7 @@ existing Event for a Student, and calculate and display total count of the displ
             <asp:SqlDataSource ID="dsddlTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name FROM UTM.TravelEvent INNER JOIN UTM.StudentTravelEvent ON UTM.TravelEvent.EventID = UTM.StudentTravelEvent.EventID"></asp:SqlDataSource>
         </div>
         <div class="col-lg-10">
-                    &nbsp;
+            &nbsp;
         </div>
     </div>
     <div class="row">

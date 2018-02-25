@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace UTMExpenses
@@ -18,6 +14,12 @@ namespace UTMExpenses
             else
             {
                 dvTravelExpenseDetails.DefaultMode = DetailsViewMode.ReadOnly;
+            }
+            // Display Error Message when the user is not logged in
+            if (Session["ssUsr"] == null)
+            {
+                Session["ssMessage"] = " Authorized users only; Please login";
+                Response.Redirect("Default.aspx");
             }
         }
     }

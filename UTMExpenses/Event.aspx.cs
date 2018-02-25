@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace UTMExpenses
@@ -11,6 +7,46 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Validate if the user is logged in or not
+            ValidateLogin();
+            // Display Page Headings
+            PageHeadings();
+        }
+
+        private void ValidateLogin()
+        {
+            // Display Error Message when the user is not logged in
+            if (Session["ssUsr"] == null)
+            {
+                Session["ssMessage"] = " Authorized users only; Please login";
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                //Display Username and Logout link
+                HyperLink lkLogin = Master.FindControl("lkLogin") as HyperLink;
+                HyperLink lkLogout = Master.FindControl("lkLogout") as HyperLink;
+                lkLogin.Text = "Hi " + Session["ssUsr"] + "!";
+                lkLogin.NavigateUrl = "";
+                lkLogout.Text = "Logout";
+                lkLogout.NavigateUrl = "~/Logout.aspx";
+            }
+        }
+
+        private void PageHeadings()
+        {
+            // Control lblTitle from the MasterPage
+            Label lblTitle = Master.FindControl("lblTitle") as Label;
+            lblTitle.Text = "Products";
+            //   lblInstructions.Text = "<H4>To add a new product click the Add New Product button.To change the product information, select the edit link on the product line. To delete a product, select de delete link on the product line.</ H4 > ";
+            //Show the message from the sender page
+            if (Session["ssMessage"] != null)
+            {
+                lblMessage.Text = Session["ssMessage"].ToString();
+                // lblMessage.Attributes["class"] = Session["ssCCClass"].ToString();
+                Session["ssMessage"] = null;
+                Session["ssCCClass"] = null;
+            }
         }
 
         protected void gvEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -28,8 +64,7 @@ namespace UTMExpenses
 
         protected void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            Session.Remove("ssEventID");
-            Response.Redirect("EventDetails.aspx");
+            Response.Redirect("EventDetails.aspx?pcode=&act=c");
         }
     }
 }

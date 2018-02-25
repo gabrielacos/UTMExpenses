@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace UTMExpenses
@@ -11,22 +7,25 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Display Error Message when the user is not logged in
+            if (Session["ssUsr"] == null)
+            {
+                Session["ssMessage"] = " Authorized users only; Please login";
+                Response.Redirect("Default.aspx");
+            }
 
-               
-           
+            if (Session["ssEventID"] == null)
+            {
+                dvEventDetails.DefaultMode = DetailsViewMode.Insert;
+            }
+            else
+            {
+                dvEventDetails.DefaultMode = DetailsViewMode.ReadOnly;
+            }
         }
 
         protected void dvEventsDetails_PreRender(object sender, EventArgs e)
         {
-            if (Session["ssEventID"] == null)
-            {
-                dvEventsDetails.DefaultMode = DetailsViewMode.Insert;
-            }
-            else
-            {
-                dvEventsDetails.DefaultMode = DetailsViewMode.ReadOnly;
-            }
-
         }
     }
 }

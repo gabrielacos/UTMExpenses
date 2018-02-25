@@ -19,8 +19,9 @@
             &nbsp;
         </div>
         <div class="col-lg-8">
-            <asp:DetailsView ID="dvEventsDetails" runat="server" Height="50px" Width="125px" Visible="true" DataSourceID="SqlDataSource1" AllowPaging="True" OnPageIndexChanging="dvEventsDetails_PageIndexChanging" OnPreRender="dvEventsDetails_PreRender">
+            <asp:DetailsView ID="dvEventDetails" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" AllowPaging="True" DataSourceID="dsEventDetails" AutoGenerateRows="False" DataKeyNames="EventID">
                 <Fields>
+                    <asp:BoundField DataField="EventID" HeaderText="EventID" InsertVisible="False" ReadOnly="True" SortExpression="EventID" />
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
                     <asp:BoundField DataField="LocationType" HeaderText="LocationType" SortExpression="LocationType" />
@@ -35,34 +36,49 @@
                     <asp:BoundField DataField="AcademicSession" HeaderText="AcademicSession" SortExpression="AcademicSession" />
                     <asp:BoundField DataField="Event_Status" HeaderText="Event_Status" SortExpression="Event_Status" />
                     <asp:BoundField DataField="Record_Status" HeaderText="Record_Status" SortExpression="Record_Status" />
-                    <asp:BoundField DataField="created_by" HeaderText="created_by" SortExpression="created_by" />
-                    <asp:BoundField DataField="creation_date" HeaderText="creation_date" SortExpression="creation_date" />
-                    <asp:BoundField DataField="updated_by" HeaderText="updated_by" SortExpression="updated_by" />
-                    <asp:CommandField ShowInsertButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
                 </Fields>
             </asp:DetailsView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status, created_by, creation_date, updated_by FROM UTM.TravelEvent
-WHERE @parmEventID) "
-                InsertCommand="INSERT INTO UTM.TravelEvent(Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status, created_by, creation_date, updated_by, update_date) VALUES ('INS_EVENT_NAME', 'INS_LOCATEION', 'INS_LOCATIONTYPE', @INSEVENTTYPE, @INSCITY, @INSSTATE, @INSCOUNTRY, '@INSORGANIZATION', @INSEVENTURL, @INSSTARTDATE, @ENDDATE, @ACADEMISSSESION, @EVENT_STATUS, @RECORD_STATUS, @CREATED_BY, @CREATION_DATE, @UPDATED_BY, @UPDATE_DATE)">
+            <asp:SqlDataSource ID="dsEventDetails" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" DeleteCommand="DELETE FROM [TravelEvent] WHERE [EventID] = @EventID" InsertCommand="INSERT INTO [TravelEvent] ([Event_Name], [Location], [LocationType], [EventType], [City], [State], [Country], [OrganizedByOrganization], [EventURL], [StartDate], [EndDate], [AcademicSession], [Event_Status], [Record_Status]) VALUES (@Event_Name, @Location, @LocationType, @EventType, @City, @State, @Country, @OrganizedByOrganization, @EventURL, @StartDate, @EndDate, @AcademicSession, @Event_Status, @Record_Status)" SelectCommand="SELECT EventID, Event_Name, Location, LocationType, EventType, City, State, Country, OrganizedByOrganization, EventURL, StartDate, EndDate, AcademicSession, Event_Status, Record_Status FROM UTM.TravelEvent WHERE (EventID = @EventID)" UpdateCommand="UPDATE [TravelEvent] SET [Event_Name] = @Event_Name, [Location] = @Location, [LocationType] = @LocationType, [EventType] = @EventType, [City] = @City, [State] = @State, [Country] = @Country, [OrganizedByOrganization] = @OrganizedByOrganization, [EventURL] = @EventURL, [StartDate] = @StartDate, [EndDate] = @EndDate, [AcademicSession] = @AcademicSession, [Event_Status] = @Event_Status, [Record_Status] = @Record_Status WHERE [EventID] = @EventID">
+                <DeleteParameters>
+                    <asp:Parameter Name="EventID" Type="Int32" />
+                </DeleteParameters>
                 <InsertParameters>
-                    <asp:Parameter Name="INSEVENTTYPE" />
-                    <asp:Parameter Name="INSCITY" />
-                    <asp:Parameter Name="INSSTATE" />
-                    <asp:Parameter Name="INSCOUNTRY" />
-                    <asp:Parameter Name="INSEVENTURL" />
-                    <asp:Parameter Name="INSSTARTDATE" />
-                    <asp:Parameter Name="ENDDATE" />
-                    <asp:Parameter Name="ACADEMISSSESION" />
-                    <asp:Parameter Name="EVENT_STATUS" />
-                    <asp:Parameter Name="RECORD_STATUS" />
-                    <asp:Parameter Name="CREATED_BY" />
-                    <asp:Parameter Name="CREATION_DATE" />
-                    <asp:Parameter Name="UPDATED_BY" />
-                    <asp:Parameter Name="UPDATE_DATE" />
+                    <asp:Parameter Name="Event_Name" Type="String" />
+                    <asp:Parameter Name="Location" Type="String" />
+                    <asp:Parameter Name="LocationType" Type="String" />
+                    <asp:Parameter Name="EventType" Type="String" />
+                    <asp:Parameter Name="City" Type="String" />
+                    <asp:Parameter Name="State" Type="String" />
+                    <asp:Parameter Name="Country" Type="String" />
+                    <asp:Parameter Name="OrganizedByOrganization" Type="String" />
+                    <asp:Parameter Name="EventURL" Type="String" />
+                    <asp:Parameter DbType="Date" Name="StartDate" />
+                    <asp:Parameter DbType="Date" Name="EndDate" />
+                    <asp:Parameter Name="AcademicSession" Type="String" />
+                    <asp:Parameter Name="Event_Status" Type="String" />
+                    <asp:Parameter Name="Record_Status" Type="String" />
                 </InsertParameters>
                 <SelectParameters>
-                    <asp:SessionParameter Name="parmEventID" SessionField="ssEventID" />
+                    <asp:SessionParameter Name="EventID" SessionField="ssEventID" Type="Int32" />
                 </SelectParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Event_Name" Type="String" />
+                    <asp:Parameter Name="Location" Type="String" />
+                    <asp:Parameter Name="LocationType" Type="String" />
+                    <asp:Parameter Name="EventType" Type="String" />
+                    <asp:Parameter Name="City" Type="String" />
+                    <asp:Parameter Name="State" Type="String" />
+                    <asp:Parameter Name="Country" Type="String" />
+                    <asp:Parameter Name="OrganizedByOrganization" Type="String" />
+                    <asp:Parameter Name="EventURL" Type="String" />
+                    <asp:Parameter DbType="Date" Name="StartDate" />
+                    <asp:Parameter DbType="Date" Name="EndDate" />
+                    <asp:Parameter Name="AcademicSession" Type="String" />
+                    <asp:Parameter Name="Event_Status" Type="String" />
+                    <asp:Parameter Name="Record_Status" Type="String" />
+                    <asp:Parameter Name="EventID" Type="Int32" />
+                </UpdateParameters>
             </asp:SqlDataSource>
         </div>
         <div class="col-lg-2">
