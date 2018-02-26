@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Stylesheet" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
+    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
@@ -28,12 +29,15 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <asp:DropDownList ID="ddlStudent" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ddlStudent" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlDSdropdownlist" DataTextField="Name" DataValueField="StudentID">
+                <asp:ListItem Value="%">Select All</asp:ListItem>
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="ddlDSdropdownlist" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial FROM UTM.Student"></asp:SqlDataSource>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" OnSelectedIndexChanged="gvStudents_SelectedIndexChanged">
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" CssClass="tabel table-bordered" OnSelectedIndexChanged="gvStudents_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
@@ -57,7 +61,11 @@
                     <asp:BoundField DataField="update_date" HeaderText="update_date" SortExpression="update_date" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="dsUTMStudents" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.Student.* FROM UTM.Student"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="dsUTMStudents" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial, DOB, Address_line1, Address_line2, City, State, Country, Zipcode, Celular_Phone, Institutional_Email, Total_Amount_Received, Record_Status, created_by, creation_date, updated_by, update_date FROM UTM.Student WHERE (StudentID LIKE '%' + @parmStudentID + '%')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlStudent" Name="parmStudentID" PropertyName="SelectedValue" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </div>
     <div class="row">

@@ -29,7 +29,7 @@ namespace UTMExpenses
 
             Label lblTitleInstructions = Master.FindControl("lblTitleInstructions") as Label;
 
-            lblTitleInstructions.Text = "<H4>To add a new Event click the 'Create New Event' button.To change the product information, select the edit link on the Event line. To delete a Event, select de delete link on the Event line.</ H4 >";
+            lblTitleInstructions.Text = "<H4>To add a new Event click the 'Register New Event' button.To change the product information, select the edit link on the Eventt line. To delete a Event, select de delete link on the Event line.</ H4 >";
             //Show the message from the sender page
             if (Session["ssMessage"] != null)
             {
@@ -55,7 +55,6 @@ namespace UTMExpenses
 
         protected void btnCreateEvent_Click(object sender, EventArgs e)
         {
-            Session.Remove("ssEventID");
             Response.Redirect("EventDetails.aspx?ecode=&act=c");
         }
     }

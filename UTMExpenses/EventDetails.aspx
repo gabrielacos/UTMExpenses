@@ -60,10 +60,46 @@
                     <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
                     <asp:BoundField DataField="OrganizedByOrganization" HeaderText="OrganizedByOrganization" SortExpression="OrganizedByOrganization" />
                     <asp:BoundField DataField="EventURL" HeaderText="EventURL" SortExpression="EventURL" />
-                    <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
-                    <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
                     <asp:BoundField DataField="AcademicSession" HeaderText="AcademicSession" SortExpression="AcademicSession" />
-                    <asp:BoundField DataField="Event_Status" HeaderText="Event_Status" SortExpression="Event_Status" />
+                    <asp:TemplateField HeaderText="StartDate" SortExpression="StartDate">
+                        <EditItemTemplate>
+                            <asp:TextBox TextMode="Date" ID="TextBox1" runat="server" Text='<%# Bind("StartDate") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox TextMode="Date" ID="TextBox1" runat="server" Text='<%# Bind("StartDate") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("StartDate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="EndDate" SortExpression="EndDate">
+                        <EditItemTemplate>
+                            <asp:TextBox TextMode="Date" ID="TextBox2" runat="server" Text='<%# Bind("EndDate") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox TextMode="Date" runat="server" Text='<%# Bind("EndDate") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("EndDate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Event_Status" SortExpression="Event_Status">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="ddlEventStatus" runat="server" Text='<%# Bind("Event_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:DropDownList ID="ddlEventStatus" runat="server" Text='<%# Bind("Event_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Event_Status") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
                         <EditItemTemplate>
                             <asp:DropDownList ID="TextBox4" runat="server" Text='<%# Bind("Record_Status") %>'>

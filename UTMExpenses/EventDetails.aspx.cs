@@ -126,21 +126,25 @@ namespace UTMExpenses
         {
             //Funcion para llenar los textboxes que no pueden ser llenados por el usuario!
             DateTime date = DateTime.Now;
+            string ssUserName = Session["ssUsr"].ToString();
             //Assign default value
             if (dvEventDetails.CurrentMode == DetailsViewMode.Insert)
             {
-                string ssUserName = Session["ssUsr"].ToString();
-
                 ((TextBox)dvEventDetails.FindControl("txtcreationdate")).Text = date.ToString();
                 ((TextBox)dvEventDetails.FindControl("txtcreatedby")).Text = ssUserName.ToString();
                 ((TextBox)dvEventDetails.FindControl("txtupdateby")).Text = ssUserName.ToString();
+            }
+            if (dvEventDetails.CurrentMode == DetailsViewMode.Edit)
+            {
+                ((TextBox)dvEventDetails.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
+                ((TextBox)dvEventDetails.FindControl("txtUpdatedate")).Text = date.ToString();
             }
         }
 
         //Write to the Log Table and Redirect
         private void WriteLognRedirect()
         {
-            //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [Store].[spINSERTLog]
+            //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [UTM].[spINSERTLog]
             //    UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
             //    //user autenticated - redirect to default page
             Response.Redirect("Event.aspx");
