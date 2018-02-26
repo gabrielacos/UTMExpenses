@@ -62,11 +62,6 @@ namespace UTMExpenses
 
         protected void dvStudentsDetails_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
-            StrssMessage = "Item Inserted Successfully";
-            StrssCSS = "alert-success";
-            //Asignar valor a las parametros del metodo WriteLogProc
-            strEvento = "ItemInserted";
-            //WriteLognRedirect();
         }
 
         protected void dvStudentsDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
@@ -90,7 +85,7 @@ namespace UTMExpenses
             StrssCSS = "alert-success";
             //Asignar valor a las parametros del metodo WriteLogProc
             strEvento = "ItemUpdated";
-            ////WriteLognRedirect();
+            WriteLognRedirect();
         }
 
         protected void dvStudentsDetails_PreRender(object sender, EventArgs e)
@@ -133,10 +128,12 @@ namespace UTMExpenses
         //Write to the Log Table and Redirect
         private void WriteLognRedirect()
         {
-            //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [Store].[spINSERTLog]
-            //    UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
-            //    //user autenticated - redirect to default page
-            Response.Redirect("Event.aspx");
+            int struser = 1;
+
+            // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [Store].[spINSERTLog]
+            UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
+            //user autenticated - redirect to default page
+            Response.Redirect("Students.aspx");
         }
 
         //subrutina para crear el mensaje de error formato JAVASCRIPT
@@ -192,6 +189,15 @@ namespace UTMExpenses
             {
                 Session["ssMessage"] = "Invalid action";
             }
+        }
+
+        protected void dvStudentsDetails_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            StrssMessage = "Item Inserted Successfully";
+            StrssCSS = "alert-success";
+            //Asignar valor a las parametros del metodo WriteLogProc
+            strEvento = "ItemInserted";
+            WriteLognRedirect();
         }
     }
 }

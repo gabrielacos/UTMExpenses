@@ -36,23 +36,24 @@ namespace UTMExpenses
         }
 
         // Metodo para escribir al log
-        public static void WriteLogProc(string strUser, string strEvento, string strTabla, string strForma)
+        public static void WriteLogProc(int strUser, string strEvento, string strTabla, string strForma)
         {
             // Establecer la informacion de la conexion
             SqlConnection conn_string = new
-           SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
-            SqlCommand sql_comm = new SqlCommand();
-            SqlDataReader reader;
-            sql_comm.CommandText = "[UTM].[spINSERTLog]";
-            sql_comm.CommandType = CommandType.StoredProcedure;
-            sql_comm.Connection = conn_string;
+            SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
+            SqlCommand sql_comm = new SqlCommand("EXEC UTM.spINSERTLog @usr = @strUser, @event = @strEvento, @tabla = @strTabla, @pagename = strForma ", conn_string);
+            ////SqlDataReader reader;
+            //sql_comm.CommandText = "[UTM].[spINSERTLog]";
+            //sql_comm.CommandType = CommandType.StoredProcedure;
+            //sql_comm.Connection = conn_string;
             // Asignar valor a los parametros
             sql_comm.Parameters.AddWithValue("@usr", strUser);
             sql_comm.Parameters.AddWithValue("@event", strEvento);
             sql_comm.Parameters.AddWithValue("@table", strTabla);
-            sql_comm.Parameters.AddWithValue("@formname", strForma);
+            sql_comm.Parameters.AddWithValue("@pagename", strForma);
+
             conn_string.Open();
-            reader = sql_comm.ExecuteReader();
+            //reader = sql_comm.ExecuteReader();
             conn_string.Close();
         }
 

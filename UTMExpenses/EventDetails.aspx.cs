@@ -10,7 +10,7 @@ namespace UTMExpenses
 
         public string strTabla = "Events";
         public string strForma = "EventDetails";
-        public string struser;
+        public int struser;
         public string StrssMessage = "";
         public string StrssCSS = "";
         protected void Page_Load(object sender, EventArgs e)
@@ -61,10 +61,10 @@ namespace UTMExpenses
 
         protected void dvEventDetails_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
-            StrssMessage = "Item Inserted Successfully";
-            StrssCSS = "alert-success";
-            //Asignar valor a las parametros del metodo WriteLogProc
-            strEvento = "ItemInserted";
+            //StrssMessage = "Item Inserted Successfully";
+            //StrssCSS = "alert-success";
+            ////Asignar valor a las parametros del metodo WriteLogProc
+            //strEvento = "ItemInserted";
             //WriteLognRedirect();
         }
 
@@ -102,7 +102,7 @@ namespace UTMExpenses
             StrssCSS = "alert-success";
             //Asignar valor a las parametros del metodo WriteLogProc
             strEvento = "ItemUpdated";
-            ////WriteLognRedirect();
+            WriteLognRedirect();
         }
 
         protected void dvEventDetails_PreRender(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace UTMExpenses
         private void WriteLognRedirect()
         {
             //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [UTM].[spINSERTLog]
-            //    UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
+            UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
             //    //user autenticated - redirect to default page
             Response.Redirect("Event.aspx");
         }
@@ -203,6 +203,15 @@ namespace UTMExpenses
             {
                 Session["ssMessage"] = "Invalid action";
             }
+        }
+
+        protected void dvEventDetails_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            StrssMessage = "Item Inserted Successfully";
+            StrssCSS = "alert-success";
+            //Asignar valor a las parametros del metodo WriteLogProc
+            strEvento = "ItemInserted";
+            WriteLognRedirect();
         }
     }
 }
