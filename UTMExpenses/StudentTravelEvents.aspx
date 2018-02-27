@@ -47,13 +47,26 @@ existing Event for a Student, and calculate and display total count of the displ
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <asp:GridView ID="gvStudentEvents" runat="server" CssClass="table table-bordered" DataSourceID="dsStudentTravelEvent" OnPreRender="gvStudentEvents_PreRender" OnSelectedIndexChanged="gvStudentEvents_SelectedIndexChanged">
+            <asp:GridView ID="gvStudentEvents" runat="server" CssClass="table table-bordered" DataSourceID="dsStudentTravelEvent" OnPreRender="gvStudentEvents_PreRender" OnSelectedIndexChanged="gvStudentEvents_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname" />
+                    <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                    <asp:BoundField DataField="ExpenseAmount" HeaderText="ExpenseAmount" SortExpression="ExpenseAmount" />
+                    <asp:BoundField DataField="Expense_Status" HeaderText="Expense_Status" SortExpression="Expense_Status" />
+                    <asp:BoundField DataField="StudentTravel_Status" HeaderText="StudentTravel_Status" SortExpression="StudentTravel_Status" />
+                    <asp:BoundField DataField="Record_Status" HeaderText="Record_Status" SortExpression="Record_Status" />
+                    <asp:BoundField DataField="created_by" HeaderText="created_by" SortExpression="created_by" />
+                    <asp:BoundField DataField="creation_date" HeaderText="creation_date" SortExpression="creation_date" />
+                    <asp:BoundField DataField="updated_by" HeaderText="updated_by" SortExpression="updated_by" />
+                    <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
+                    <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
+                    <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="dsStudentTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT { fn CONCAT(UTM.Student.Name, '', UTM.Student.Initial, ' ', UTM.Student.Lastname) } AS Student_Name, UTM.TravelEvent.Event_Name, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.StudentTravel_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.StudentTravelEvent.update_date FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID
-where  UTM.StudentTravelEvent.StudentID = @parmEventID">
+            <asp:SqlDataSource ID="dsStudentTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.TravelEvent.Event_Name, UTM.Student.Name, UTM.Student.Lastname, UTM.Student.Initial, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.StudentTravel_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.TravelEvent.Location, UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE  ( UTM.StudentTravelEvent.EventID LIKE '%' + @parmEventID + '%')">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlTravelEvent" Name="parmEventID" PropertyName="SelectedValue" />
                 </SelectParameters>

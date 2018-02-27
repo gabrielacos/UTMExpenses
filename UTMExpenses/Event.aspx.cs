@@ -40,13 +40,7 @@ namespace UTMExpenses
             }
         }
 
-        protected void gvEvents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Assign value to a session variable from the selected row on the GridView
-            Session["ssEventID"] = gvEvents.SelectedValue;
-            // Redirect to open the ProductDetails page
-            Response.Redirect("EventDetails.aspx");
-        }
+      
 
         protected void gvEvents_PreRender(object sender, EventArgs e)
         {

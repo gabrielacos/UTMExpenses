@@ -29,8 +29,6 @@ namespace UTMExpenses
 
         protected void btnStudentTravelEvent_Click(object sender, EventArgs e)
         {
-            Session.Remove("ssStudentTravelEvents");
-            Response.Redirect("StudentTravelEvents.aspx");
         }
     }
 }

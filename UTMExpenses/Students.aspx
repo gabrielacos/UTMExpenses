@@ -37,9 +37,9 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" CssClass="table table-bordered" OnSelectedIndexChanged="gvStudents_SelectedIndexChanged" AllowPaging="True">
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" CssClass="table table-bordered"  AllowPaging="True">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=&quot;r&quot;" Text="Select" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname" />
@@ -63,7 +63,7 @@
                     <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=&quot;d&quot;" Text="Delete" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="dsUTMStudents" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT [StudentID], [Name], [Lastname], [Initial], [DOB], [Address_line1], [Address_line2], [Record_Status], [Total_Amount_Received], [Institutional_Email], [Celular_Phone], [Zipcode], [Country], [State], [City], [created_by], [creation_date], [updated_by], [update_date] FROM [UTM].[Student] 
+            <asp:SqlDataSource ID="dsUTMStudents" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT [StudentID], [Name], [Lastname], [Initial], [DOB], [Address_line1], [Address_line2], [Record_Status], [Total_Amount_Received], [Institutional_Email], [Celular_Phone], [Zipcode], [Country], [State], [City], [created_by], [creation_date], [updated_by], [update_date] FROM [UTM].[Student]
  WHERE StudentID LIKE '%' + @parmStudentID+ '%'">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlStudent" Name="parmStudentID" PropertyName="SelectedValue" />

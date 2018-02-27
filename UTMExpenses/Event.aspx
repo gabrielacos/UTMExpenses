@@ -46,9 +46,9 @@ b. You must design a Report that lists All the Events by Type.-->
     <div class="row">
         <div class="col-lg-12">
 
-            <asp:GridView ID="gvEvents" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource" OnSelectedIndexChanged="gvEvents_SelectedIndexChanged" OnPreRender="gvEvents_PreRender" AllowPaging="True">
+            <asp:GridView ID="gvEvents" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource"  OnPreRender="gvEvents_PreRender" AllowPaging="True">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:HyperLinkField DataNavigateUrlFields="EventID" DataNavigateUrlFormatString="EventDetails.aspx?ecode={0}&amp;act=&quot;r&quot;" Text="Select" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" InsertVisible="False" ReadOnly="True" SortExpression="EventID" />
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />

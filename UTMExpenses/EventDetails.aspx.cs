@@ -199,6 +199,10 @@ namespace UTMExpenses
 
                     dvEventDetails.ChangeMode(DetailsViewMode.ReadOnly);
                 }
+                else if (actionID == "r")
+                {
+                                                          dvEventDetails.ChangeMode(DetailsViewMode.ReadOnly);
+                }
             }
             else
             {
