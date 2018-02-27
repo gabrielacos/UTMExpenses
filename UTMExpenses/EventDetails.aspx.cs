@@ -168,7 +168,7 @@ namespace UTMExpenses
             if (StrssMessage != null)
             {
                 lblMessage.Text = StrssMessage;
-                lblMessage.Attributes["class"] = StrssCSS;
+                lblMessage.Attributes["cssclass"] = StrssCSS;
             }
             //Parameter sent using the QueryString
             string actionID = Request.QueryString["act"];
@@ -201,7 +201,7 @@ namespace UTMExpenses
                 }
                 else if (actionID == "r")
                 {
-                                                          dvEventDetails.ChangeMode(DetailsViewMode.ReadOnly);
+                    dvEventDetails.ChangeMode(DetailsViewMode.ReadOnly);
                 }
             }
             else

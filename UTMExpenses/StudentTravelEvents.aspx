@@ -15,7 +15,7 @@ existing Event for a Student, and calculate and display total count of the displ
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
         <div class="col-lg-10">
-            <h1>Students</h1>
+            <h1>Students Travel Events</h1>
         </div>
 
         <div class="col-lg-2">
@@ -35,21 +35,23 @@ existing Event for a Student, and calculate and display total count of the displ
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-2">
-            <asp:DropDownList ID="ddlTravelEvent" CssClass="dropdown dropdown-toggle" runat="server" AppendDataBoundItems="True" DataSourceID="dsddlTravelEvent" DataTextField="Event_Name" DataValueField="EventID">
-                <asp:ListItem>Event</asp:ListItem>
+        <div class="col-lg-6">
+            <asp:DropDownList ID="ddlTravelEvent" CssClass="dropdown dropdown-toggle" runat="server" AppendDataBoundItems="True" DataSourceID="dsddlTravelEvent" DataTextField="Event_Name" DataValueField="EventID" AutoPostBack="True">
+                <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
-            <asp:SqlDataSource ID="dsddlTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name FROM UTM.TravelEvent INNER JOIN UTM.StudentTravelEvent ON UTM.TravelEvent.EventID = UTM.StudentTravelEvent.EventID"></asp:SqlDataSource>
+
+            <asp:SqlDataSource ID="dsddlTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name, UTM.StudentTravelEvent.StudentID, UTM.Student.Name FROM UTM.TravelEvent INNER JOIN UTM.StudentTravelEvent ON UTM.TravelEvent.EventID = UTM.StudentTravelEvent.EventID INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID"></asp:SqlDataSource>
         </div>
-        <div class="col-lg-10">
-            &nbsp;
+        <div class="col-lg-6">
+             <asp:DropDownList ID="ddlStudentName" CssClass="dropdown dropdown-toggle" runat="server" AppendDataBoundItems="True" DataSourceID="dsddlTravelEvent" DataTextField="Name" DataValueField="StudentID" AutoPostBack="True">
+                <asp:ListItem Value="%">Select All</asp:ListItem>
+            </asp:DropDownList>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <asp:GridView ID="gvStudentEvents" runat="server" CssClass="table table-bordered" DataSourceID="dsStudentTravelEvent" OnPreRender="gvStudentEvents_PreRender" OnSelectedIndexChanged="gvStudentEvents_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname" />
@@ -66,9 +68,10 @@ existing Event for a Student, and calculate and display total count of the displ
                     <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="dsStudentTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.TravelEvent.Event_Name, UTM.Student.Name, UTM.Student.Lastname, UTM.Student.Initial, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.StudentTravel_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.TravelEvent.Location, UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE  ( UTM.StudentTravelEvent.EventID LIKE '%' + @parmEventID + '%')">
+            <asp:SqlDataSource ID="dsStudentTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.TravelEvent.Event_Name, UTM.Student.Name, UTM.Student.Lastname, UTM.Student.Initial, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.StudentTravel_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.TravelEvent.Location, UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE  ( UTM.StudentTravelEvent.EventID LIKE  '%' + @parmEventID + '%') and ( UTM.StudentTravelEvent.StudentID LIKE  '%' + @parmStudentID + '%')">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlTravelEvent" Name="parmEventID" PropertyName="SelectedValue" />
+                    <asp:ControlParameter ControlID="ddlStudentName" Name="parmStudentID" PropertyName="SelectedValue" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>

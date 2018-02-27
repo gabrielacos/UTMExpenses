@@ -22,7 +22,7 @@
                         <li><a href="Event.aspx" id="liEvent">Event</a></li>
                         <li><a href="Students.aspx" id="liStudents">Students</a></li>
                         <li><a href="TravelExpenses.aspx" id="liTravelExpenses">Travel Expense</a></li>
-                        <li><a href="TravelEvents" id="liStudentTravels">Travel Events</a></li>
+                        <li><a href="StudentTravelEvents.aspx" id="liStudentTravels">Travel Events</a></li>
                     </ul>
                 </div>
             </nav>
