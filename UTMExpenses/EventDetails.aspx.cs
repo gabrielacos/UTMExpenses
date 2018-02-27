@@ -132,12 +132,13 @@ namespace UTMExpenses
             {
                 ((TextBox)dvEventDetails.FindControl("txtcreationdate")).Text = date.ToString();
                 ((TextBox)dvEventDetails.FindControl("txtcreatedby")).Text = ssUserName.ToString();
-                ((TextBox)dvEventDetails.FindControl("txtupdateby")).Text = ssUserName.ToString();
+                ((TextBox)dvEventDetails.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
+                ((TextBox)dvEventDetails.FindControl("txtUpdatedate")).Text = date.ToString();
             }
             if (dvEventDetails.CurrentMode == DetailsViewMode.Edit)
             {
-                ((TextBox)dvEventDetails.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
-                ((TextBox)dvEventDetails.FindControl("txtUpdatedate")).Text = date.ToString();
+                //((TextBox)dvEventDetails.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
+                //((TextBox)dvEventDetails.FindControl("txtUpdatedate")).Text = date.ToString();
             }
         }
 

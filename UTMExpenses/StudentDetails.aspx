@@ -37,56 +37,30 @@ name) by major and year of study.-->
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                 <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname" />
                 <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
-                <asp:TemplateField HeaderText="DOB" SortExpression="DOB">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DOB") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DOB") %>'></asp:TextBox>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("DOB") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
                 <asp:BoundField DataField="Address_line1" HeaderText="Address_line1" SortExpression="Address_line1" />
                 <asp:BoundField DataField="Address_line2" HeaderText="Address_line2" SortExpression="Address_line2" />
+                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+                <asp:BoundField DataField="Zipcode" HeaderText="Zipcode" SortExpression="Zipcode" />
+                <asp:BoundField DataField="Celular_Phone" HeaderText="Celular_Phone" SortExpression="Celular_Phone" />
+                <asp:BoundField DataField="Institutional_Email" HeaderText="Institutional_Email" SortExpression="Institutional_Email" />
+                <asp:BoundField DataField="Total_Amount_Received" HeaderText="Total_Amount_Received" SortExpression="Total_Amount_Received" />
                 <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="TextBox4" runat="server" Text='<%# Bind("Record_Status") %>'>
-                            <asp:ListItem Value="A"> Active </asp:ListItem>
-                            <asp:ListItem Value="I">Inactive </asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <InsertItemTemplate>
-                        <asp:DropDownList ID="TextBox4" runat="server" Text='<%# Bind("Record_Status") %>'>
-                            <asp:ListItem Value="A"> Active </asp:ListItem>
-                            <asp:ListItem Value="I">Inactive </asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="Total_Amount_Received" HeaderText="Total_Amount_Received" SortExpression="Total_Amount_Received" />
-                <asp:TemplateField HeaderText="Institutional_Email" SortExpression="Institutional_Email">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                    <InsertItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:TextBox>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label7" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="Celular_Phone" HeaderText="Celular_Phone" SortExpression="Celular_Phone" />
-                <asp:BoundField DataField="Zipcode" HeaderText="Zipcode" SortExpression="Zipcode" />
-                <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-                <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
-                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                 <asp:TemplateField HeaderText="created_by" SortExpression="created_by">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
+                        <%--<asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>--%>
                     </EditItemTemplate>
                     <InsertItemTemplate>
                         <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
@@ -131,7 +105,7 @@ name) by major and year of study.-->
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
             </Fields>
         </asp:DetailsView>
-        <asp:SqlDataSource ID="dsStudentDetails" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial, DOB, Address_line1, Address_line2, City, State, Country, Zipcode, Celular_Phone, Institutional_Email, Total_Amount_Received, Record_Status, created_by, creation_date, updated_by, update_date FROM UTM.Student" DeleteCommand="DELETE FROM UTM.[Student] WHERE [StudentID] = @StudentID" InsertCommand="INSERT INTO UTM.[Student] ([StudentID], [Name], [Lastname], [Initial], [DOB], [Address_line1], [Address_line2], [City], [State], [Country], [Zipcode], [Celular_Phone], [Institutional_Email], [Total_Amount_Received], [Record_Status], [created_by], [creation_date], [updated_by], [update_date]) VALUES (@StudentID, @Name, @Lastname, @Initial, @DOB, @Address_line1, @Address_line2, @City, @State, @Country, @Zipcode, @Celular_Phone, @Institutional_Email, @Total_Amount_Received, @Record_Status, @created_by, @creation_date, @updated_by, @update_date)" UpdateCommand="UPDATE UTM.[Student] SET [Name] = @Name, [Lastname] = @Lastname, [Initial] = @Initial, [DOB] = @DOB, [Address_line1] = @Address_line1, [Address_line2] = @Address_line2, [City] = @City, [State] = @State, [Country] = @Country, [Zipcode] = @Zipcode, [Celular_Phone] = @Celular_Phone, [Institutional_Email] = @Institutional_Email, [Total_Amount_Received] = @Total_Amount_Received, [Record_Status] = @Record_Status, [created_by] = @created_by, [creation_date] = @creation_date, [updated_by] = @updated_by, [update_date] = @update_date WHERE [StudentID] = @StudentID">
+        <asp:SqlDataSource ID="dsStudentDetails" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial, DOB, Address_line1, Address_line2, City, State, Country, Zipcode, Celular_Phone, Institutional_Email, Total_Amount_Received, Record_Status, created_by, creation_date, updated_by, update_date FROM UTM.Student where StudentID=@StudentID" DeleteCommand="DELETE FROM UTM.[Student] WHERE [StudentID] = @StudentID" InsertCommand="INSERT INTO UTM.[Student] ([StudentID], [Name], [Lastname], [Initial], [DOB], [Address_line1], [Address_line2], [City], [State], [Country], [Zipcode], [Celular_Phone], [Institutional_Email], [Total_Amount_Received], [Record_Status], [created_by], [creation_date], [updated_by], [update_date]) VALUES (@StudentID, @Name, @Lastname, @Initial, @DOB, @Address_line1, @Address_line2, @City, @State, @Country, @Zipcode, @Celular_Phone, @Institutional_Email, @Total_Amount_Received, @Record_Status, @created_by, @creation_date, @updated_by, @update_date)" UpdateCommand="UPDATE UTM.[Student] SET [Name] = @Name, [Lastname] = @Lastname, [Initial] = @Initial, [DOB] = @DOB, [Address_line1] = @Address_line1, [Address_line2] = @Address_line2, [City] = @City, [State] = @State, [Country] = @Country, [Zipcode] = @Zipcode, [Celular_Phone] = @Celular_Phone, [Institutional_Email] = @Institutional_Email, [Total_Amount_Received] = @Total_Amount_Received, [Record_Status] = @Record_Status, [created_by] = @created_by, [creation_date] = @creation_date, [updated_by] = @updated_by, [update_date] = @update_date WHERE [StudentID] = @StudentID">
             <DeleteParameters>
                 <asp:Parameter Name="StudentID" Type="String" />
             </DeleteParameters>
@@ -156,6 +130,9 @@ name) by major and year of study.-->
                 <asp:Parameter Name="updated_by" Type="String" />
                 <asp:Parameter DbType="Date" Name="update_date" />
             </InsertParameters>
+            <SelectParameters>
+                <asp:QueryStringParameter Name="StudentID" QueryStringField="ecode" />
+            </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter Name="Name" Type="String" />
                 <asp:Parameter Name="Lastname" Type="String" />
