@@ -107,7 +107,8 @@ strMensajeError.ToString() + "</div>";
                 // Assign values to columns before table insert considering
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
-                e.Values["RECORD_STATUS"] = "A";
+                e.Values["RECORD_STATUS"] = "A";
+
             }
         }
 

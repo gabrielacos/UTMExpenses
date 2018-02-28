@@ -69,22 +69,208 @@ namespace UTMExpenses
 
         protected void dvStudentsDetails_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
+
+            // Variable to accumulate the errors before displaying them
+            string strMensajeError = "";
+            e.Cancel = false;
+            // Takes the TextBox value and assign it to local variable
+            TextBox strMCode = (TextBox)dvStudentsDetails.FindControl("txtStudentID");
+            TextBox strMName = (TextBox)dvStudentsDetails.FindControl("txtFName");
+            TextBox strDOB = (TextBox)dvStudentsDetails.FindControl("txtDOB");
+            TextBox strCountry = (TextBox)dvStudentsDetails.FindControl("txtCountry");
+            TextBox strState = (TextBox)dvStudentsDetails.FindControl("txtState");
+            TextBox strCity = (TextBox)dvStudentsDetails.FindControl("txtCity");
+            TextBox strAddrLin = (TextBox)dvStudentsDetails.FindControl("txtAddressLine");
+            TextBox strCelular = (TextBox)dvStudentsDetails.FindControl("txtCelular");
+            TextBox strZcode = (TextBox)dvStudentsDetails.FindControl("txtZipcode");
+            TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtEventName");
+            TextBox strEmail = (TextBox)dvStudentsDetails.FindControl("txtEmail");
+
+
+            // Validate before insert
+            //Validate - Missing StudentID
+            if (strMCode.Text == null || strMCode.Text == "")
+            {
+                strMensajeError += "Missing StudentID.";
+                e.Cancel = true;
+            }
+            if (strMName.Text == null || strMName.Text == "")
+            {
+                strMensajeError += "Missing First Name.";
+                e.Cancel = true;
+            }
+            if (strLName.Text == null || strLName.Text == "")
+            {
+                strMensajeError += "Missing Last Name.";
+                e.Cancel = true;
+            }
+            if (strDOB.Text == null || strDOB.Text == "")
+            {
+                strMensajeError += "Missing Date of Birth (MM-DD-YYYY).";
+                e.Cancel = true;
+            }
+            if (strCountry.Text == null || strCountry.Text == "")
+            {
+                strMensajeError += "Missing Country.";
+                e.Cancel = true;
+            }
+            if (strState.Text == null || strState.Text == "")
+            {
+                strMensajeError += "Missing State.";
+                e.Cancel = true;
+            }
+            if (strCity.Text == null || strCity.Text == "")
+            {
+                strMensajeError += "Missing City.";
+                e.Cancel = true;
+            }
+            if (strAddrLin.Text == null || strAddrLin.Text == "")
+            {
+                strMensajeError += "Missing Adress Line 1.";
+                e.Cancel = true;
+            }
+            if (strCelular.Text == null || strCelular.Text == "")
+            {
+                strMensajeError += "Missing Celular.";
+                e.Cancel = true;
+            }
+            if (strZcode.Text == null || strZcode.Text == "")
+            {
+                strMensajeError += "Missing Zip Code.";
+                e.Cancel = true;
+            }
+            if (strEmail.Text == null || strEmail.Text == "")
+            {
+                strMensajeError += "Missing Email Address.";
+                e.Cancel = true;
+            }
+
+            // Validate -Sudent ID length
+            if (strMCode.Text.Length != 5)
+            {
+                strMensajeError += "StudentID shoud be 5 characters long Example:10001 ";
+                e.Cancel = true;
+            }
+            // Validate -Sudent ID length
+            if (strEmail.Text.Length != 8 || strEmail.Text.Contains("@") )
+           
+            {
+                strMensajeError += "Enter a valid Email Address";
+                e.Cancel = true;
+            }
+            // If prevoius validation throws an error, return the error
+            if (e.Cancel == true)
+            {
+                lblMessage.Text = "Insert Error! <br />" +
+strMensajeError.ToString() + "</div>";
+                StrssMessage = "Insert Error! <br />" +
+                strMensajeError.ToString() + "</div>";
+            }
+            else
+            {
+
+                // Assign values to columns before table insert considering
+                // this data will NOT be available to input on the detail form
+                // Record Status is A for new records
+                e.Values["RECORD_STATUS"] = "A";
+                e.Values["Total_Amount_Received"] = 0;
+
+            }
         }
 
         protected void dvStudentsDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
         {
-            string strErrorMessage = null;
-            string strCreatedBy;
-            if (e.NewValues[2] == null)
+            string strMensajeError = null;
+
+            TextBox strMName = (TextBox)dvStudentsDetails.FindControl("txtFName");
+            TextBox strDOB = (TextBox)dvStudentsDetails.FindControl("txtDOB");
+            TextBox strCountry = (TextBox)dvStudentsDetails.FindControl("txtCountry");
+            TextBox strState = (TextBox)dvStudentsDetails.FindControl("txtState");
+            TextBox strCity = (TextBox)dvStudentsDetails.FindControl("txtCity");
+            TextBox strAddrLin = (TextBox)dvStudentsDetails.FindControl("txtAddressLine");
+            TextBox strCelular = (TextBox)dvStudentsDetails.FindControl("txtCelular");
+            TextBox strZcode = (TextBox)dvStudentsDetails.FindControl("txtZipcode");
+            TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtEventName");
+            TextBox strEmail = (TextBox)dvStudentsDetails.FindControl("txtEmail");
+
+
+            // Validate before insert
+            //Validate - Missing StudentID
+
+            if (strMName.Text == null || strMName.Text == "")
             {
-                strErrorMessage += "Quantity on Hand cannot be blank";
+                strMensajeError += "Missing First Name.";
                 e.Cancel = true;
             }
+            if (strLName.Text == null || strLName.Text == "")
+            {
+                strMensajeError += "Missing Last Name.";
+                e.Cancel = true;
+            }
+            if (strDOB.Text == null || strDOB.Text == "")
+            {
+                strMensajeError += "Missing Date of Birth (MM-DD-YYYY).";
+                e.Cancel = true;
+            }
+            if (strCountry.Text == null || strCountry.Text == "")
+            {
+                strMensajeError += "Missing Country.";
+                e.Cancel = true;
+            }
+            if (strState.Text == null || strState.Text == "")
+            {
+                strMensajeError += "Missing State.";
+                e.Cancel = true;
+            }
+            if (strCity.Text == null || strCity.Text == "")
+            {
+                strMensajeError += "Missing City.";
+                e.Cancel = true;
+            }
+            if (strAddrLin.Text == null || strAddrLin.Text == "")
+            {
+                strMensajeError += "Missing Adress Line 1.";
+                e.Cancel = true;
+            }
+            if (strCelular.Text == null || strCelular.Text == "")
+            {
+                strMensajeError += "Missing Celular.";
+                e.Cancel = true;
+            }
+            if (strZcode.Text == null || strZcode.Text == "")
+            {
+                strMensajeError += "Missing Zip Code.";
+                e.Cancel = true;
+            }
+            if (strEmail.Text == null || strEmail.Text == "")
+            {
+                strMensajeError += "Missing Email Address.";
+                e.Cancel = true;
+            }
+
+
+
+            // Validate -Sudent Email
+            if (strEmail.Text.Length != 8 || strEmail.Text.Contains("@"))
+
+            {
+                strMensajeError += "Enter a valid Email Address";
+                e.Cancel = true;
+            }
+            // If prevoius validation throws an error, return the error
             if (e.Cancel == true)
             {
-                StrssMessage = "Please verify " + strErrorMessage;
+                lblMessage.Text = "Insert Error! <br />" +
+  strMensajeError.ToString() + "</div>";
+                StrssMessage = "Insert Error! <br />" +
+                strMensajeError.ToString() + "</div>";
             }
         }
+           
+
+
+            
+        
 
         protected void dvStudentsDetails_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
         {
