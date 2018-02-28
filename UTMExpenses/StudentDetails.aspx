@@ -170,9 +170,9 @@ name) by major and year of study.-->
                 <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
                     <EditItemTemplate>
                         <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
-                                <asp:ListItem Value="A">Active</asp:ListItem>
-                                <asp:ListItem Value="I">Inactive</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:ListItem Value="A">Active</asp:ListItem>
+                            <asp:ListItem Value="I">Inactive</asp:ListItem>
+                        </asp:DropDownList>
                     </EditItemTemplate>
                     <InsertItemTemplate>
                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>

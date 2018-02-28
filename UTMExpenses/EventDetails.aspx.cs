@@ -77,15 +77,15 @@ namespace UTMExpenses
             TextBox strMName = (TextBox)dvEventDetails.FindControl("txtEventName");
             TextBox strSDate = (TextBox)dvEventDetails.FindControl("txtStartDate");
             TextBox strEDate = (TextBox)dvEventDetails.FindControl("txtEndDate");
-           
+            TextBox strEvID = (TextBox)dvEventDetails.FindControl("txtEventID");
 
-            // Validate before insert
-            // Validate - Missing Medicine code
-            //if (strMCode.Text == null || strMCode.Text == "")
-            //{
-            //    strMensajeError += "Missing Medicine Code.";
-            //    e.Cancel = true;
-            //}
+            //Validate before insert
+            //Validate - Missing EventID
+            if (strEvID.Text == null || strEvID.Text == "")
+            {
+                strMensajeError += "Missing EventID.";
+                e.Cancel = true;
+            }
             if (strMName.Text == null || strMName.Text == "")
             {
                 strMensajeError += "Missing Event Name.";
@@ -99,23 +99,23 @@ namespace UTMExpenses
             if (strEDate.Text == null || strEDate.Text == "")
             {
                 strMensajeError += "Missing End Date.";
-                
+
                 e.Cancel = true;
             }
 
-            //// Validate - Medicine code length
-            //if (strMCode.Text.Length != 5)
-            //{
-            //    strMensajeError += "Medicine Code shoud be 5 characters long";
-            //    e.Cancel = true;
-            //}
             // Validate - Medicine code length
+            if (strEvID.Text.Length != 5)
+            {
+                strMensajeError += "EventID shoud be 5 characters long";
+                e.Cancel = true;
+            }
+            //Validate - Medicine code length
             //string StartDate = strSDate.ToString();
             //string EndDate = strEDate.ToString();
 
             //DateTime parsedDate = DateTime.Parse(StartDate);
             //DateTime parsedDate1 = DateTime.Parse(StartDate);
-            //if 
+            //if
             //{
             //    strMensajeError += "Medicine Code shoud be 5 characters long";
             //    e.Cancel = true;
@@ -137,17 +137,14 @@ strMensajeError.ToString() + "</div>";
                 DateTime parsedDate = DateTime.Parse(StartDate);
                 DateTime parsedDate1 = DateTime.Parse(StartDate);
 
-
                 // Assign values to columns before table insert considering
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
                 e.Values["RECORD_STATUS"] = "A";
                 e.Values["Start_Date"] = parsedDate;
                 e.Values["End_Date"] = parsedDate;
-
             }
         }
-
 
         //Validacion para TextBox
         protected void dvEventDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
@@ -191,9 +188,7 @@ strMensajeError.ToString() + "</div>";
             if (IsPostBack == true)
             {
                 lblMessage.Text = StrssMessage.ToString();
-
             }
-
         }
 
         protected void dvEventDetails_ItemCommand(object sender, DetailsViewCommandEventArgs e)
@@ -305,35 +300,31 @@ strMensajeError.ToString() + "</div>";
             }
             else if (e.Exception.Message.Contains("Violation of PRIMARY KEY"))
             {
-                
-                    StrssMessage = "Product Code already exists. Please enter a NEW Product Code " + " </ div > ";
-                    lblMessage.Text = "Product Code already exists. Please enter a NEWProduct Code " + " </ br > ";
+                StrssMessage = "Product Code already exists. Please enter a NEW Product Code " + " </ div > ";
+                lblMessage.Text = "Product Code already exists. Please enter a NEWProduct Code " + " </ br > ";
             }
             // Logic comes to this section if an error occurred during the INSERT
             // This IF evaluates the content of the error message to isolate
             // the Foreign key Violation
             else if (e.Exception.Message.Contains("conflicted with the FOREIGN KEY constraint"))
-                {
-                    lblMessage.Text = "Vendor Code not valid. Please enter a VALID Vendor Code " + " </ div > ";
-                }
-                else
-                {
-                    // Coding to Show the system error to the user
-                    // e.Exception.Message carries the system error
-                    // Coding to Show the system error to the user
-                    // e.Exception.Message carries the system error
-                    StrssMessage = e.Exception.Message + "</div>";
-                    lblMessage.Text = e.Exception.Message.ToString();
-
-                }
-                // Change the property ExceptionHandled to true
-                // This will tell the system that the error was handled and avoid crash
-                e.ExceptionHandled = true;
-                // Keep the form in InsertMode to let the user continue working with
-                // the form and correct the error
-                e.KeepInInsertMode = true;
-
-
+            {
+                lblMessage.Text = "Vendor Code not valid. Please enter a VALID Vendor Code " + " </ div > ";
             }
+            else
+            {
+                // Coding to Show the system error to the user
+                // e.Exception.Message carries the system error
+                // Coding to Show the system error to the user
+                // e.Exception.Message carries the system error
+                StrssMessage = e.Exception.Message + "</div>";
+                lblMessage.Text = e.Exception.Message.ToString();
+            }
+            // Change the property ExceptionHandled to true
+            // This will tell the system that the error was handled and avoid crash
+            e.ExceptionHandled = true;
+            // Keep the form in InsertMode to let the user continue working with
+            // the form and correct the error
+            e.KeepInInsertMode = true;
         }
     }
+}

@@ -69,7 +69,6 @@ namespace UTMExpenses
 
         protected void dvStudentsDetails_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
-
             // Variable to accumulate the errors before displaying them
             string strMensajeError = "";
             e.Cancel = false;
@@ -83,9 +82,8 @@ namespace UTMExpenses
             TextBox strAddrLin = (TextBox)dvStudentsDetails.FindControl("txtAddressLine");
             TextBox strCelular = (TextBox)dvStudentsDetails.FindControl("txtCelular");
             TextBox strZcode = (TextBox)dvStudentsDetails.FindControl("txtZipcode");
-            TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtEventName");
+            TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtLName");
             TextBox strEmail = (TextBox)dvStudentsDetails.FindControl("txtEmail");
-
 
             // Validate before insert
             //Validate - Missing StudentID
@@ -146,14 +144,14 @@ namespace UTMExpenses
             }
 
             // Validate -Sudent ID length
-            if (strMCode.Text.Length != 5)
-            {
-                strMensajeError += "StudentID shoud be 5 characters long Example:10001 ";
-                e.Cancel = true;
-            }
+            //if (strMCode.Text.Length != 5)
+            //{
+            //    strMensajeError += "StudentID shoud be 5 characters long Example:10001 ";
+            //    e.Cancel = true;
+            //}
             // Validate -Sudent ID length
-            if (strEmail.Text.Length != 8 || strEmail.Text.Contains("@") )
-           
+            if (strEmail.Text.Length != 8)
+
             {
                 strMensajeError += "Enter a valid Email Address";
                 e.Cancel = true;
@@ -168,13 +166,11 @@ strMensajeError.ToString() + "</div>";
             }
             else
             {
-
                 // Assign values to columns before table insert considering
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
                 e.Values["RECORD_STATUS"] = "A";
                 e.Values["Total_Amount_Received"] = 0;
-
             }
         }
 
@@ -192,7 +188,6 @@ strMensajeError.ToString() + "</div>";
             TextBox strZcode = (TextBox)dvStudentsDetails.FindControl("txtZipcode");
             TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtEventName");
             TextBox strEmail = (TextBox)dvStudentsDetails.FindControl("txtEmail");
-
 
             // Validate before insert
             //Validate - Missing StudentID
@@ -248,10 +243,8 @@ strMensajeError.ToString() + "</div>";
                 e.Cancel = true;
             }
 
-
-
             // Validate -Sudent Email
-            if (strEmail.Text.Length != 8 || strEmail.Text.Contains("@"))
+            if (strEmail.Text.Length != 8)
 
             {
                 strMensajeError += "Enter a valid Email Address";
@@ -266,11 +259,6 @@ strMensajeError.ToString() + "</div>";
                 strMensajeError.ToString() + "</div>";
             }
         }
-           
-
-
-            
-        
 
         protected void dvStudentsDetails_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
         {

@@ -78,8 +78,6 @@ namespace UTMExpenses
             //TextBox strMCode = (TextBox)dvEventDetails.FindControl("txtEventID");
             DropDownList strEname = (DropDownList)dvTravelExpenseDetails.FindControl("ddlEventID");
             DropDownList strSname = (DropDownList)dvTravelExpenseDetails.FindControl("ddlStudentID");
-            
-
 
             // Validate before insert
             // Validate - Missing Medicine code
@@ -94,8 +92,6 @@ namespace UTMExpenses
                 e.Cancel = true;
             }
 
-
-           
             if (strEname.Text == null || strEname.Text == "" || strEname.Text == "0000")
             {
                 strMensajeError += "Missing Event Name.";
@@ -114,7 +110,7 @@ namespace UTMExpenses
 
             //DateTime parsedDate = DateTime.Parse(StartDate);
             //DateTime parsedDate1 = DateTime.Parse(StartDate);
-            //if 
+            //if
             //{
             //    strMensajeError += "Medicine Code shoud be 5 characters long";
             //    e.Cancel = true;
@@ -129,14 +125,11 @@ strMensajeError.ToString() + "</div>";
             }
             else
             {
-
                 // Assign values to columns before table insert considering
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
                 e.Values["RECORD_STATUS"] = "A";
                 e.Values["Expense_Status"] = "P";
-
-
             }
         }
 
@@ -186,7 +179,7 @@ strMensajeError.ToString() + "</div>";
             //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [UTM].[spINSERTLog]
             UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
             //    //user autenticated - redirect to default page
-            Response.Redirect("StudentTravelEvents.aspx");
+            Response.Redirect("TravelExpenses.aspx");
         }
 
         private void MsgWindow(string sMessage)

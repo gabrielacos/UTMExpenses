@@ -59,7 +59,7 @@
                     <asp:BoundField DataField="creation_date" HeaderText="creation_date" SortExpression="creation_date" />
                     <asp:BoundField DataField="updated_by" HeaderText="updated_by" SortExpression="updated_by" />
                     <asp:BoundField DataField="update_date" HeaderText="update_date" SortExpression="update_date" />
-                    <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=&quot;u&quot;" Text="Edit" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=u" Text="Edit" />
                     <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=&quot;d&quot;" Text="Delete" />
                 </Columns>
             </asp:GridView>

@@ -44,8 +44,8 @@ b. You must design a Report that lists All the Events by Type.-->
 
     <div class="">
         <div class="table table-hover table-striped grid-view">
-            <asp:GridView ID="gvEvents" CssClass="table table-hover table-striped " runat="server" UseAccessibleHeader="true" 
-                AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource"  
+            <asp:GridView ID="gvEvents" CssClass="table table-hover table-striped " runat="server"
+                AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource"
                 OnPreRender="gvEvents_PreRender" AllowPaging="True">
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="EventID" DataNavigateUrlFormatString="EventDetails.aspx?ecode={0}&amp;act=&quot;r&quot;" Text="Select" />
@@ -68,7 +68,7 @@ b. You must design a Report that lists All the Events by Type.-->
                     <asp:BoundField DataField="creation_date" HeaderText="creation_date" SortExpression="creation_date" />
                     <asp:BoundField DataField="updated_by" HeaderText="updated_by" SortExpression="updated_by" />
                     <asp:BoundField DataField="update_date" HeaderText="update_date" SortExpression="update_date" />
-                    <asp:HyperLinkField DataNavigateUrlFields="EventID" DataNavigateUrlFormatString="EventDetails.aspx?ecode={0}&amp;act=&quot;u&quot;" Text="Edit" />
+                    <asp:HyperLinkField DataNavigateUrlFields="EventID" DataNavigateUrlFormatString="EventDetails.aspx?ecode={0}&amp;act=u" Text="Edit" />
                     <asp:HyperLinkField Text="Delete" DataNavigateUrlFields="EventID" DataNavigateUrlFormatString="EventDetails.aspx?ecode={0}&amp;act=&quot;d&quot;" />
                 </Columns>
             </asp:GridView>
@@ -126,7 +126,6 @@ b. You must design a Report that lists All the Events by Type.-->
         </div>
     </div>
 
-    
     <div class="row">
         <div class="col-lg-2">
             &nbsp;
