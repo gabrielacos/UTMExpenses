@@ -8,18 +8,22 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
         <div class="col-lg-8">
-            <h1>Events Details</h1>
+            <h1>Student Travel Event Detail</h1>
         </div>
         <div class="col-lg-4">
             <asp:Image ID="Image1" runat="server" Height="60px" Width="59px" ImageUrl="~/Resources/Logo.png" />
         </div>
     </div>
+
+
+
     <div class="row">
         <div class="col-lg-2">
             &nbsp;
         </div>
-        <div class="col-lg-8">
-            <asp:DetailsView ID="dlStudentTravelEvents" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="StudentID,EventID" DataSourceID="dsTravelEvents" OnDataBound="dlStudentTravelEvents_DataBound" OnItemDeleted="dlStudentTravelEvents_ItemDeleted" OnItemDeleting="dlStudentTravelEvents_ItemDeleting" OnItemInserted="dlStudentTravelEvents_ItemInserted" OnItemInserting="dlStudentTravelEvents_ItemInserting" OnItemUpdated="dlStudentTravelEvents_ItemUpdated" OnItemUpdating="dlStudentTravelEvents_ItemUpdating" OnPreRender="dlStudentTravelEvents_PreRender" OnItemCommand="dlStudentTravelEvents_ItemCommand">
+
+        <div class="table table-hover table-striped grid-view">
+            <asp:DetailsView ID="dlStudentTravelEvents" cssClass="table table-hover table-striped grid-view" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="StudentID,EventID" DataSourceID="dsTravelEvents" OnDataBound="dlStudentTravelEvents_DataBound" OnItemDeleted="dlStudentTravelEvents_ItemDeleted" OnItemDeleting="dlStudentTravelEvents_ItemDeleting" OnItemInserted="dlStudentTravelEvents_ItemInserted" OnItemInserting="dlStudentTravelEvents_ItemInserting" OnItemUpdated="dlStudentTravelEvents_ItemUpdated" OnItemUpdating="dlStudentTravelEvents_ItemUpdating" OnPreRender="dlStudentTravelEvents_PreRender" OnItemCommand="dlStudentTravelEvents_ItemCommand">
                 <Fields>
                     <asp:TemplateField HeaderText="StudentID" SortExpression="StudentID">
                         <EditItemTemplate>
@@ -180,6 +184,7 @@ Where StudentID=@StudentID and EventID=@EventID"
                 </UpdateParameters>
             </asp:SqlDataSource>
         </div>
+
         <div class="col-lg-2">
             &nbsp;
         </div>

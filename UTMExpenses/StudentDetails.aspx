@@ -19,7 +19,7 @@ name) by major and year of study.-->
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
         <div class="col-lg-8">
-            <h1>Events Details</h1>
+            <h1>Student Details</h1>
         </div>
         <div class="col-lg-4">
             <asp:Image ID="Image1" runat="server" Height="60px" Width="59px" ImageUrl="~/Resources/Logo.png" />
@@ -30,7 +30,7 @@ name) by major and year of study.-->
             &nbsp;
         </div>
     </div>
-    <div class="col-lg-8">
+    <div class="table table-hover table-striped grid-view">
         <asp:DetailsView ID="dvStudentsDetails" runat="server" Height="50px" Width="125px" CssClass="table table-bordered" DataSourceID="dsStudentDetails" AutoGenerateRows="False" DataKeyNames="StudentID" OnDataBound="dvStudentsDetails_DataBound" OnItemCommand="dvStudentsDetails_ItemCommand" OnItemDeleted="dvStudentsDetails_ItemDeleted" OnItemDeleting="dvStudentsDetails_ItemDeleting" OnItemInserting="dvStudentsDetails_ItemInserting" OnItemUpdated="dvStudentsDetails_ItemUpdated" OnItemUpdating="dvStudentsDetails_ItemUpdating" OnPreRender="dvStudentsDetails_PreRender" OnItemInserted="dvStudentsDetails_ItemInserted">
             <Fields>
                 <asp:TemplateField HeaderText="StudentID" SortExpression="StudentID">
