@@ -43,22 +43,26 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("EventID") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="ExpenseAmount" HeaderText="ExpenseAmount" SortExpression="ExpenseAmount" />
-                    <asp:TemplateField HeaderText="Expense_Status" SortExpression="Expense_Status">
+                    <asp:TemplateField HeaderText="ExpenseAmount" SortExpression="ExpenseAmount">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
-                                <asp:ListItem Value="P">Pending</asp:ListItem>
-                                <asp:ListItem Value="D">Done</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:TextBox ID="txtExpenseAmount" runat="server" Text='<%# Bind("ExpenseAmount") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:DropDownList ID="ddlExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
-                                <asp:ListItem Value="P">Pending</asp:ListItem>
-                                <asp:ListItem Value="D">Done</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:TextBox ID="txtExpenseAmount" runat="server" Text='<%# Bind("ExpenseAmount") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("ExpenseAmount") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Expense_Status" SortExpression="Expense_Status">
+                        <EditItemTemplate>
+                            <asp:Label ID="lblExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:Label ID="lblExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="StudentTravel_Status" SortExpression="StudentTravel_Status">
@@ -86,10 +90,7 @@
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
-                                <asp:ListItem Value="A">Active</asp:ListItem>
-                                <asp:ListItem Value="I">Inactive</asp:ListItem>
-                            </asp:DropDownList>
+                             <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>

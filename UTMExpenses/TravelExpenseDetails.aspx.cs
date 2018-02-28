@@ -71,6 +71,73 @@ namespace UTMExpenses
 
         protected void dvTravelExpenseDetails_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
+            // Variable to accumulate the errors before displaying them
+            string strMensajeError = "";
+            e.Cancel = false;
+            // Takes the TextBox value and assign it to local variable
+            //TextBox strMCode = (TextBox)dvEventDetails.FindControl("txtEventID");
+            DropDownList strEname = (DropDownList)dvTravelExpenseDetails.FindControl("ddlEventID");
+            DropDownList strSname = (DropDownList)dvTravelExpenseDetails.FindControl("ddlStudentID");
+            
+
+
+            // Validate before insert
+            // Validate - Missing Medicine code
+            //if (strMCode.Text == null || strMCode.Text == "")
+            //{
+            //    strMensajeError += "Missing Medicine Code.";
+            //    e.Cancel = true;
+            //}
+            if (strSname.Text == null || strSname.Text == "" || strSname.Text == "0000")
+            {
+                strMensajeError += "Missing Event Name.";
+                e.Cancel = true;
+            }
+
+
+           
+            if (strEname.Text == null || strEname.Text == "" || strEname.Text == "0000")
+            {
+                strMensajeError += "Missing Event Name.";
+                e.Cancel = true;
+            }
+
+            //// Validate - Medicine code length
+            //if (strMCode.Text.Length != 5)
+            //{
+            //    strMensajeError += "Medicine Code shoud be 5 characters long";
+            //    e.Cancel = true;
+            //}
+            // Validate - Medicine code length
+            //string StartDate = strSDate.ToString();
+            //string EndDate = strEDate.ToString();
+
+            //DateTime parsedDate = DateTime.Parse(StartDate);
+            //DateTime parsedDate1 = DateTime.Parse(StartDate);
+            //if 
+            //{
+            //    strMensajeError += "Medicine Code shoud be 5 characters long";
+            //    e.Cancel = true;
+            //}
+            // If prevoius validation throws an error, return the error
+            if (e.Cancel == true)
+            {
+                lblMessage.Text = "Insert Error! <br />" +
+strMensajeError.ToString() + "</div>";
+                StrssMessage = "Insert Error! <br />" +
+                strMensajeError.ToString() + "</div>";
+            }
+            else
+            {
+
+                // Assign values to columns before table insert considering
+                // this data will NOT be available to input on the detail form
+                // Record Status is A for new records
+                e.Values["RECORD_STATUS"] = "A";
+                e.Values["Expense_Status"] = "P";
+
+
+            }
         }
 
         protected void dvTravelExpenseDetails_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)

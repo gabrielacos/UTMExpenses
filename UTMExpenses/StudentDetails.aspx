@@ -175,10 +175,7 @@ name) by major and year of study.-->
                             </asp:DropDownList>
                     </EditItemTemplate>
                     <InsertItemTemplate>
-                       <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
-                                <asp:ListItem Value="A">Active</asp:ListItem>
-                                <asp:ListItem Value="I">Inactive</asp:ListItem>
-                            </asp:DropDownList>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>

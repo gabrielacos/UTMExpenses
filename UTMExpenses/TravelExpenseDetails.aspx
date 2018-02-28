@@ -25,10 +25,16 @@
                     <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" Visible="False" />
                     <asp:TemplateField HeaderText="Expense_Status" SortExpression="Expense_Status">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:TextBox>
+                             <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="txtExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
@@ -79,7 +85,23 @@
                             <asp:Label ID="Label5" runat="server" Text='<%# Bind("update_date") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="Record_Status" HeaderText="Record_Status" SortExpression="Record_Status" />
+                    <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
+                        <EditItemTemplate>
+                             <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                              <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label6"  runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="StudentTravel_Status" HeaderText="StudentTravel_Status" SortExpression="StudentTravel_Status" />
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
                 </Fields>
