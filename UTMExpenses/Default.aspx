@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
     <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+    <script>
+        $("#default").addClass("active");
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">

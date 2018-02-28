@@ -10,9 +10,9 @@ travel event.-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
      <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
+    <script>$("#travel-expense").addClass("active");</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
-    <script>$("#liStudents").addClass("active");</script>
     <div class="row">
         <div class="">
             <h1 style="text-align:center">Student Travel Expenses

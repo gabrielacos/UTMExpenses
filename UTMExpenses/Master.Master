@@ -22,11 +22,11 @@
                         <a class="navbar-brand" href="Default.aspx">UTM Expenses</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li><a href="Default.aspx">Informes</a></li>
-                        <li><a href="Event.aspx" id="liEvent">Event</a></li>
-                        <li><a href="Students.aspx" id="liStudents">Students</a></li>
-                        <li><a href="TravelExpenses.aspx" id="liTravelExpenses">Travel Expense</a></li>
-                        <li><a href="StudentTravelEvents.aspx" id="liStudentTravels">Travel Events</a></li>
+                        <li id="default"><a href="Default.aspx">Informes</a></li>
+                        <li id="event"><a href="Event.aspx" id="liEvent">Event</a></li>
+                        <li id="student"><a href="Students.aspx" id="liStudents">Students</a></li>
+                        <li id="travel-expense"><a href="TravelExpenses.aspx" id="liTravelExpenses">Travel Expense</a></li>
+                        <li id="student-event"><a href="StudentTravelEvents.aspx" id="liStudentTravels">Travel Events</a></li>
                     </ul>
                 </div>
             </nav>

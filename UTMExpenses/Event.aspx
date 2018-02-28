@@ -12,6 +12,7 @@ b. You must design a Report that lists All the Events by Type.-->
     <div class="instruction-header">
         <asp:Label ID="lblMessage" runat="server" CssClass="label label-info" Font-Italic="True"></asp:Label>
     </div>
+    <script>$("#event").addClass("active");</script>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
@@ -23,7 +24,6 @@ b. You must design a Report that lists All the Events by Type.-->
         </div>
     </div>
 
-    <script>$("#liEvents").addClass("active");</script>  
     <div class="event-title">
             <h3>Select Events:</h3>
         </div>               

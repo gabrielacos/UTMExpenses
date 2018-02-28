@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
+    <script>$("#student").addClass("active");</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
      <div class="row">
@@ -13,8 +14,6 @@
             </h1>
         </div>
     </div>
-
-    <script>$("#liStudents").addClass("active");</script>
     <div class="event-title">
         <h3>Select Student</h3>
     </div>
