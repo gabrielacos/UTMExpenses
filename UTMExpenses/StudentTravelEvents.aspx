@@ -52,6 +52,7 @@ existing Event for a Student, and calculate and display total count of the displ
         <div class="col-lg-12">
             <asp:GridView ID="gvStudentEvents" runat="server" CssClass="table table-bordered" DataSourceID="dsStudentTravelEvent" OnPreRender="gvStudentEvents_PreRender" OnSelectedIndexChanged="gvStudentEvents_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID">
                 <Columns>
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="StudentTravelEventsDetail.aspx?scode={0}&amp;ecode={1}&amp;act=&quot;r&quot;" Text="Select" />
                     <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname" />
@@ -66,6 +67,8 @@ existing Event for a Student, and calculate and display total count of the displ
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="StudentTravelEventsDetail.aspx?scode={0}&amp;ecode={1}&amp;act=&quot;u&quot;" Text="Edit" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="StudentTravelEventsDetail.aspx?scode={0}&amp;ecode={1}&amp;act=&quot;d&quot;" Text="Delete" />
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="dsStudentTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.TravelEvent.Event_Name, UTM.Student.Name, UTM.Student.Lastname, UTM.Student.Initial, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.StudentTravel_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.TravelEvent.Location, UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE  ( UTM.StudentTravelEvent.EventID LIKE  '%' + @parmEventID + '%') and ( UTM.StudentTravelEvent.StudentID LIKE  '%' + @parmStudentID + '%')">

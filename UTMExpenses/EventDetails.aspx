@@ -41,44 +41,73 @@
             <asp:DetailsView ID="dvEventDetails" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" DataSourceID="dsEventDetails" AutoGenerateRows="False" DataKeyNames="EventID" OnItemDeleted="dvEventDetails_ItemDeleted" OnItemDeleting="dvEventDetails_ItemDeleting" OnItemInserting="dvEventDetails_ItemInserting" OnItemUpdated="dvEventDetails_ItemUpdated" OnItemUpdating="dvEventDetails_ItemUpdating" OnPreRender="dvEventDetails_PreRender" OnDataBound="dvEventDetails_DataBound" OnItemCommand="dvEventDetails_ItemCommand" OnItemInserted="dvEventDetails_ItemInserted" AllowPaging="True">
                 <Fields>
                     <asp:BoundField DataField="EventID" HeaderText="EventID" SortExpression="EventID" InsertVisible="False" ReadOnly="True" />
-                    <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" ValidateRequestMode="Enabled" />
+                    <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
+                    <asp:BoundField DataField="OrganizedByOrganization" HeaderText="OrganizedByOrganization" SortExpression="OrganizedByOrganization" />
+                    <asp:BoundField DataField="AcademicSession" HeaderText="AcademicSession" SortExpression="AcademicSession" />
+                    <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+                    <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                    <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                     <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
                     <asp:BoundField DataField="LocationType" HeaderText="LocationType" SortExpression="LocationType" />
                     <asp:BoundField DataField="EventType" HeaderText="EventType" SortExpression="EventType" />
-                    <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
-                    <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                     <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Event_Status" SortExpression="Event_Status">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Event_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlEventStatus" runat="server" Text='<%# Bind("Event_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Event_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlEventStaus" runat="server" Text='<%# Bind("Event_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Event_Status") %>'></asp:Label>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Event_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="AcademicSession" HeaderText="AcademicSession" SortExpression="AcademicSession" />
-                    <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
-                    <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
-                    <asp:BoundField DataField="EventURL" HeaderText="EventURL" SortExpression="EventURL" />
-                    <asp:BoundField DataField="OrganizedByOrganization" HeaderText="OrganizedByOrganization" SortExpression="OrganizedByOrganization" />
-                    <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-                    <asp:TemplateField HeaderText="created_by" SortExpression="created_by">
+                    <asp:TemplateField HeaderText="EndDate" SortExpression="EndDate">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtEndDate" runat="server" Text='<%# Bind("EndDate") %>'></asp:TextBox>
                         </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="txtEndDate" runat="server" Text='<%# Bind("EndDate") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("EndDate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="StartDate" SortExpression="StartDate">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtStartDate" runat="server" Text='<%# Bind("StartDate") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="txtStartDate" runat="server" Text='<%# Bind("StartDate") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("StartDate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="EventURL" HeaderText="EventURL" SortExpression="EventURL" />
+                    <asp:TemplateField HeaderText="created_by" SortExpression="created_by" Visible="False">
                         <InsertItemTemplate>
                             <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
                         </InsertItemTemplate>
@@ -86,18 +115,15 @@
                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("created_by") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="creation_date" SortExpression="creation_date">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtcreationdate" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
-                        </EditItemTemplate>
+                    <asp:TemplateField HeaderText="creation_date" SortExpression="creation_date" Visible="False">
                         <InsertItemTemplate>
-                            <asp:TextBox ID="txtcreationdate" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtCreationdate" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("creation_date") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="updated_by" SortExpression="updated_by">
+                    <asp:TemplateField HeaderText="updated_by" SortExpression="updated_by" Visible="False">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtUpdatedby" runat="server" Text='<%# Bind("updated_by") %>'></asp:TextBox>
                         </EditItemTemplate>
@@ -108,7 +134,7 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("updated_by") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="update_date" SortExpression="update_date">
+                    <asp:TemplateField HeaderText="update_date" SortExpression="update_date" Visible="False">
                         <EditItemTemplate>
                             <asp:TextBox ID="txtUpdatedate" runat="server" Text='<%# Bind("update_date") %>'></asp:TextBox>
                         </EditItemTemplate>
@@ -122,7 +148,7 @@
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
                 </Fields>
             </asp:DetailsView>
-            <asp:SqlDataSource ID="dsEventDetails" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" DeleteCommand="DELETE FROM [UTM].[TravelEvent] WHERE [EventID] = @EventID" InsertCommand="INSERT INTO [UTM].[TravelEvent] ([Event_Name], [Location], [LocationType], [EventType], [City], [State], [Record_Status], [Event_Status], [AcademicSession], [EndDate], [StartDate], [EventURL], [OrganizedByOrganization], [Country], [created_by], [creation_date], [updated_by], [update_date]) VALUES (@Event_Name, @Location, @LocationType, @EventType, @City, @State, @Record_Status, @Event_Status, @AcademicSession, @EndDate, @StartDate, @EventURL, @OrganizedByOrganization, @Country, @created_by, @creation_date, @updated_by, @update_date)" SelectCommand="SELECT [EventID], [Event_Name], [Location], [LocationType], [EventType], [City], [State], [Record_Status], [Event_Status], [AcademicSession], [EndDate], [StartDate], [EventURL], [OrganizedByOrganization], [Country], [created_by], [creation_date], [updated_by], [update_date] FROM [UTM].[TravelEvent] where EventID = @EventID" UpdateCommand="UPDATE [UTM].[TravelEvent] SET [Event_Name] = @Event_Name, [Location] = @Location, [LocationType] = @LocationType, [EventType] = @EventType, [City] = @City, [State] = @State, [Record_Status] = @Record_Status, [Event_Status] = @Event_Status, [AcademicSession] = @AcademicSession, [EndDate] = @EndDate, [StartDate] = @StartDate, [EventURL] = @EventURL, [OrganizedByOrganization] = @OrganizedByOrganization, [Country] = @Country, [created_by] = @created_by, [creation_date] = @creation_date, [updated_by] = @updated_by, [update_date] = @update_date WHERE [EventID] = @EventID">
+            <asp:SqlDataSource ID="dsEventDetails" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" DeleteCommand="DELETE FROM [UTM].[TravelEvent] WHERE [EventID] = @EventID" InsertCommand="INSERT INTO [UTM].[TravelEvent] ([Event_Name], [Location], [LocationType], [EventType], [City], [State], [Record_Status], [Event_Status], [AcademicSession], [EndDate], [StartDate], [EventURL], [OrganizedByOrganization], [Country], [created_by], [creation_date], [updated_by], [update_date]) VALUES (@Event_Name, @Location, @LocationType, @EventType, @City, @State, @Record_Status, @Event_Status, @AcademicSession, @EndDate, @StartDate, @EventURL, @OrganizedByOrganization, @Country, @created_by, @creation_date, @updated_by, @update_date)" SelectCommand="SELECT [EventID], [Event_Name], [Location], [LocationType], [EventType], [City], [State], [Record_Status], [Event_Status], [AcademicSession], [EndDate], [StartDate], [EventURL], [OrganizedByOrganization], [Country], [created_by], [creation_date], [updated_by], [update_date] FROM [UTM].[TravelEvent] where EventID = @EventID" UpdateCommand="UPDATE [UTM].[TravelEvent] SET [Event_Name] = @Event_Name, [Location] = @Location, [LocationType] = @LocationType, [EventType] = @EventType, [City] = @City, [State] = @State, [Record_Status] = @Record_Status, [Event_Status] = @Event_Status, [AcademicSession] = @AcademicSession, [EndDate] = @EndDate, [StartDate] = @StartDate, [EventURL] = @EventURL, [OrganizedByOrganization] = @OrganizedByOrganization, [Country] = @Country,  [updated_by] = @updated_by, [update_date] = @update_date WHERE [EventID] = @EventID">
                 <DeleteParameters>
                     <asp:Parameter Name="EventID" Type="Int32" />
                 </DeleteParameters>
@@ -164,8 +190,6 @@
                     <asp:Parameter Name="EventURL" Type="String" />
                     <asp:Parameter Name="OrganizedByOrganization" Type="String" />
                     <asp:Parameter Name="Country" Type="String" />
-                    <asp:Parameter Name="created_by" Type="String" />
-                    <asp:Parameter Name="creation_date" DbType="Date" />
                     <asp:Parameter Name="updated_by" Type="String" />
                     <asp:Parameter Name="update_date" DbType="Date" />
                     <asp:Parameter Name="EventID" Type="Int32" />

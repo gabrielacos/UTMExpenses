@@ -24,14 +24,10 @@
                 <Fields>
                     <asp:TemplateField HeaderText="StudentID" SortExpression="StudentID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlStudent" runat="server" AppendDataBoundItems="True" DataSourceID="dsStudentID" DataTextField="Name" DataValueField="StudentID" SelectedValue='<%# Bind("StudentID") %>'>
-                                <asp:ListItem Value="0000">Select a Student</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlStudentID" DataSourceID="dsStudentID" DataTextField="Name" DataValueField="StudentID" SelectedValue='<%# Bind("StudentID") %>' runat="server"></asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:DropDownList ID="ddlStudent" runat="server" AppendDataBoundItems="True" DataSourceID="dsStudentID" DataTextField="Name" DataValueField="StudentID" SelectedValue='<%# Bind("StudentID") %>'>
-                                <asp:ListItem Value="0000">Select a Student</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlStudentID" DataSourceID="dsStudentID" DataTextField="Name" DataValueField="StudentID" SelectedValue='<%# Bind("StudentID") %>' runat="server"></asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("StudentID") %>'></asp:Label>
@@ -39,14 +35,10 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="EventID" SortExpression="EventID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlEvent" runat="server" AppendDataBoundItems="True" DataSourceID="dsEvents" DataTextField="Event_Name" DataValueField="EventID" SelectedValue='<%# Bind("EventID") %>'>
-                                <asp:ListItem Value="0000">Select an Event</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlEventID" DataSourceID="dsEvents" DataTextField="Event_Name" DataValueField="EventID" SelectedValue='<%# Bind("EventID") %>' runat="server"></asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:DropDownList ID="ddlEvent" runat="server" AppendDataBoundItems="True" DataSourceID="dsEvents" DataTextField="Event_Name" DataValueField="EventID" SelectedValue='<%# Bind("EventID") %>'>
-                                <asp:ListItem Value="0000">Select an Event</asp:ListItem>
-                            </asp:DropDownList>
+                            <asp:DropDownList ID="ddlEventID" DataSourceID="dsEvents" DataTextField="Event_Name" DataValueField="EventID" SelectedValue='<%# Bind("EventID") %>' runat="server"></asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("EventID") %>'></asp:Label>
@@ -55,43 +47,61 @@
                     <asp:BoundField DataField="ExpenseAmount" HeaderText="ExpenseAmount" SortExpression="ExpenseAmount" />
                     <asp:TemplateField HeaderText="Expense_Status" SortExpression="Expense_Status">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox9" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlExpenseStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Expense_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="StudentTravel_Status" SortExpression="StudentTravel_Status">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("StudentTravel_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlStudentTravelStatus" runat="server" Text='<%# Bind("StudentTravel_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("StudentTravel_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlStudentTravelStatus" runat="server" Text='<%# Bind("StudentTravel_Status") %>'>
+                                <asp:ListItem Value="P">Pending</asp:ListItem>
+                                <asp:ListItem Value="D">Done</asp:ListItem>
+                            </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("StudentTravel_Status") %>'></asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("StudentTravel_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
+                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="created_by" SortExpression="created_by">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtcreatedby" runat="server" Text='<%# Bind("created_by") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label6" runat="server" Text='<%# Bind("created_by") %>'></asp:Label>
@@ -99,35 +109,35 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="creation_date" SortExpression="creation_date">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtcreationdate" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtcreationdate" runat="server" Text='<%# Bind("creation_date") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("creation_date") %>'></asp:Label>
+                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("creation_date") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="updated_by" SortExpression="updated_by">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("updated_by") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtUpdatedby" runat="server" Text='<%# Bind("updated_by") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("updated_by") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtUpdatedby" runat="server" Text='<%# Bind("updated_by") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("updated_by") %>'></asp:Label>
+                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("updated_by") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="update_date" SortExpression="update_date">
                         <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("update_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtUpdatedate" runat="server" Text='<%# Bind("update_date") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("update_date") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtUpdatedate" runat="server" Text='<%# Bind("update_date") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("update_date") %>'></asp:Label>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("update_date") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
@@ -136,7 +146,8 @@
             <asp:SqlDataSource ID="dsStudentID" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT Name, StudentID FROM UTM.Student"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsEvents" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT EventID, Event_Name FROM UTM.TravelEvent"></asp:SqlDataSource>
             <asp:SqlDataSource ID="dsTravelEvents" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" DeleteCommand="DELETE FROM UTM.StudentTravelEvent WHERE (StudentID = @StudentID) AND (EventID = @EventID)" InsertCommand="INSERT INTO UTM.StudentTravelEvent(StudentID, EventID, ExpenseAmount, Expense_Status, StudentTravel_Status, Record_Status, created_by, creation_date, updated_by, update_date) VALUES (@StudentID, @EventID, @ExpenseAmount, @Expense_Status, @StudentTravel_Status, @Record_Status, @created_by, @creation_date, @updated_by, @update_date)" SelectCommand="SELECT StudentID, EventID, ExpenseAmount, Expense_Status, StudentTravel_Status, Record_Status, created_by, creation_date, updated_by, update_date FROM UTM.StudentTravelEvent
-Where StudentID=@StudentID and EventID=@EventID" UpdateCommand="UPDATE UTM.StudentTravelEvent SET ExpenseAmount = @ExpenseAmount, Expense_Status = @Expense_Status, StudentTravel_Status = @StudentTravel_Status, Record_Status = @Record_Status, created_by = @created_by, creation_date = @creation_date, updated_by = @updated_by, update_date = @update_date WHERE (StudentID = @StudentID) AND (EventID = @EventID)">
+Where StudentID=@StudentID and EventID=@EventID"
+                UpdateCommand="UPDATE UTM.StudentTravelEvent SET ExpenseAmount = @ExpenseAmount, Expense_Status = @Expense_Status, StudentTravel_Status = @StudentTravel_Status, Record_Status = @Record_Status, updated_by = @updated_by, update_date = @update_date WHERE (StudentID = @StudentID) AND (EventID = @EventID)">
                 <DeleteParameters>
                     <asp:Parameter Name="StudentID" Type="String" />
                     <asp:Parameter Name="EventID" Type="Int32" />
@@ -162,8 +173,6 @@ Where StudentID=@StudentID and EventID=@EventID" UpdateCommand="UPDATE UTM.Stude
                     <asp:Parameter Name="Expense_Status" Type="String" />
                     <asp:Parameter Name="StudentTravel_Status" Type="String" />
                     <asp:Parameter Name="Record_Status" Type="String" />
-                    <asp:Parameter Name="created_by" Type="String" />
-                    <asp:Parameter DbType="Date" Name="creation_date" />
                     <asp:Parameter Name="updated_by" Type="String" />
                     <asp:Parameter Name="update_date" DbType="Date" />
                     <asp:Parameter Name="StudentID" Type="String" />

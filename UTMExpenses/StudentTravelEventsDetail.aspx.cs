@@ -122,7 +122,7 @@ namespace UTMExpenses
             //    // Ejecutar el metodo WriteLogProc que ejecuta el Stored Procedure [UTM].[spINSERTLog]
             UTMExpenses.GlobalMethods.WriteLogProc(struser, strEvento, strTabla, strForma);
             //    //user autenticated - redirect to default page
-            Response.Redirect("StudentEvent.aspx");
+            Response.Redirect("StudentTravelEvents.aspx");
         }
 
         private void MsgWindow(string sMessage)

@@ -29,6 +29,7 @@ namespace UTMExpenses
 
         protected void btnStudentTravelEvent_Click(object sender, EventArgs e)
         {
+            Response.Redirect("StudentTravelEventsDetail.aspx?ecode=&act=c");
         }
     }
 }
