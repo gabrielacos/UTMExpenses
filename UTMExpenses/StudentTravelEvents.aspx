@@ -15,42 +15,40 @@ existing Event for a Student, and calculate and display total count of the displ
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Students Travel Events</h1>
-        </div>
-
-        <div class="col-lg-2">
-            <asp:Image ID="Image1" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+        <div class="">
+            <h1 style="text-align:center;">Student Travel Event
+                 <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            </h1>
         </div>
     </div>
 
     <script>$("#liTravelEvents").addClass("active");</script>
     <div class="row">
-
         <div class="col-lg-8">
-            <h5>Select Events</h5>
-        </div>
-
-        <div class="col-lg-4">
-            <asp:Button ID="btnStudentTravelEvent" runat="server" Text="Register Travel Event" CssClass="btn btn-primary" OnClick="btnStudentTravelEvent_Click" />
+            <h3>Select Events</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
+
+    <div class="flex-container">
+        <div class="col-lg-4 create-button">
+            <asp:Button ID="btnStudentTravelEvent" runat="server" Text="Register Travel Event" CssClass="btn btn-primary" OnClick="btnStudentTravelEvent_Click" />
+        </div>
+        <div class="drop-down dropdown show">
             <asp:DropDownList ID="ddlTravelEvent" CssClass="dropdown dropdown-toggle" runat="server" AppendDataBoundItems="True" DataSourceID="dsddlTravelEvent" DataTextField="Event_Name" DataValueField="EventID" AutoPostBack="True">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
 
             <asp:SqlDataSource ID="dsddlTravelEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name, UTM.StudentTravelEvent.StudentID, UTM.Student.Name FROM UTM.TravelEvent INNER JOIN UTM.StudentTravelEvent ON UTM.TravelEvent.EventID = UTM.StudentTravelEvent.EventID INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID"></asp:SqlDataSource>
         </div>
-        <div class="col-lg-6">
+        <div class="drop-down dropdown show">
              <asp:DropDownList ID="ddlStudentName" CssClass="dropdown dropdown-toggle" runat="server" AppendDataBoundItems="True" DataSourceID="dsddlTravelEvent" DataTextField="Name" DataValueField="StudentID" AutoPostBack="True">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
+
+    <div class="">
+        <div class="table table-hover table-striped grid-view">
             <asp:GridView ID="gvStudentEvents" runat="server" CssClass="table table-bordered" DataSourceID="dsStudentTravelEvent" OnPreRender="gvStudentEvents_PreRender" OnSelectedIndexChanged="gvStudentEvents_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID">
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="StudentTravelEventsDetail.aspx?scode={0}&amp;ecode={1}&amp;act=&quot;r&quot;" Text="Select" />

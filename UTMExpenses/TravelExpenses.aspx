@@ -14,26 +14,18 @@ travel event.-->
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <script>$("#liStudents").addClass("active");</script>
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Student Travel Expenses</h1>
-        </div>
-
-        <div class="col-lg-2">
-            <asp:Image ID="Image1" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+        <div class="">
+            <h1 style="text-align:center">Student Travel Expenses
+             <asp:Image ID="Image2" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            </h1>
         </div>
     </div>
 
-    
-    <div class="row">
-
-        <div class="col-lg-8">
-            <h5>Select Student</h5>
-        </div>
-
-        <div class="col-lg-4">
-        </div>
+    <div class="event-title">
+        <h3>Select Student</h3>
     </div>
-    <div class="row">
+
+    <div class="flex-container">
         <div class="col-lg-6">
             <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle" >
                 <asp:ListItem Value="%">Select All</asp:ListItem>
@@ -47,8 +39,9 @@ travel event.-->
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.Student.Name FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID"></asp:SqlDataSource>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
+
+    <div class="">
+        <div class="table table-hover table-striped grid-view">
             <asp:GridView ID="gvStudentTravelExpense" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudenttravelExpense" CssClass=" table table-bordered">
                 <Columns>
                     <asp:HyperLinkField Text="Select" />

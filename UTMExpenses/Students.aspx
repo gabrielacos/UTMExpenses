@@ -6,37 +6,36 @@
     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
-    <div class="row">
-        <div class="col-lg-10">
-            <h1>Students</h1>
-        </div>
-
-        <div class="col-lg-2">
-            <asp:Image ID="Image1" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+     <div class="row">
+        <div class="">
+            <h1 style="text-align:center;">Students
+                 <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            </h1>
         </div>
     </div>
 
     <script>$("#liStudents").addClass("active");</script>
-    <div class="row">
+    <div class="event-title">
+        <h3>Select Student</h3>
+    </div>
 
-        <div class="col-lg-8">
-            <h5>Select Student</h5>
-        </div>
-
-        <div class="col-lg-4">
+    <div class="flex-container">
+        <div class="create-button">
             <asp:Button ID="btnRegisterStudent" runat="server" Text="Register New Student" CssClass="btn btn-primary" OnClick="btnRegisterStudent_Click" />
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <asp:DropDownList ID="ddlStudent" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlDSdropdownlist" DataTextField="Name" DataValueField="StudentID">
-                <asp:ListItem Value="%">Select All</asp:ListItem>
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="ddlDSdropdownlist" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial FROM UTM.Student"></asp:SqlDataSource>
+        <div class="drop-down dropdown">
+            <div class="dropdown show">
+                <asp:DropDownList ID="ddlStudent" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlDSdropdownlist" DataTextField="Name" DataValueField="StudentID">
+                    <asp:ListItem Value="%">Select All</asp:ListItem>
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="ddlDSdropdownlist" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial FROM UTM.Student"></asp:SqlDataSource>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
+    
+
+    <div class="">
+        <div class="table table-hover table-striped grid-view">
             <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" CssClass="table table-bordered"  AllowPaging="True">
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=&quot;r&quot;" Text="Select" />

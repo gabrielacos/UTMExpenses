@@ -9,26 +9,25 @@ event, and calculate and display total count of the displayed Events.
 b. You must design a Report that lists All the Events by Type.-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
-
-    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
+    <div class="instruction-header">
+        <asp:Label ID="lblMessage" runat="server" CssClass="label label-info" Font-Italic="True"></asp:Label>
+    </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Events</h1>
-        </div>
-
-        <div class="col-lg-2">
-            <asp:Image ID="Image1" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+        <div class="">
+            <h1 style="text-align:center;">Events
+                 <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            </h1>
         </div>
     </div>
 
-    <script>$("#liEvents").addClass("active");</script>
+    <script>$("#liEvents").addClass("active");</script>  
+    <div class="event-title">
+            <h3>Select Events:</h3>
+        </div>               
     <div class="flex-container">
-        <div class="event-title">
-            <h5>Select Events</h5>
-        </div>
         <div class="create-button">
             <asp:Button ID="btnCreateEvent" runat="server" Text="Create New Event" OnClick="btnCreateEvent_Click" CssClass="btn btn-primary" />
         </div>
@@ -132,7 +131,8 @@ b. You must design a Report that lists All the Events by Type.-->
         </div>
         <!-- Text and a Label Control to display totals -->
         <div class="col-lg-8">
-            <asp:Label ID="lblTotal" runat="server"></asp:Label>
+            <h5>Event Count:</h5>
+            <asp:Label ID="lblTotal" runat="server" ></asp:Label>
         </div>
         <div class="col-lg-2">
             &nbsp;
