@@ -29,7 +29,6 @@ travel event.-->
         </div>
 
         <div class="col-lg-4">
-            <asp:Button ID="btnTravelExpense" runat="server" Text="Register New TravelExpense" CssClass="btn btn-primary" OnClick="btnRegisterStudent_Click" />
         </div>
     </div>
     <div class="row">
