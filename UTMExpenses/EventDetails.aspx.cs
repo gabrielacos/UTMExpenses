@@ -75,6 +75,10 @@ namespace UTMExpenses
             // Takes the TextBox value and assign it to local variable
             //TextBox strMCode = (TextBox)dvEventDetails.FindControl("txtEventID");
             TextBox strMName = (TextBox)dvEventDetails.FindControl("txtEventName");
+            TextBox strSDate = (TextBox)dvEventDetails.FindControl("txtStartDate");
+            TextBox strEDate = (TextBox)dvEventDetails.FindControl("txtEndDate");
+           
+
             // Validate before insert
             // Validate - Missing Medicine code
             //if (strMCode.Text == null || strMCode.Text == "")
@@ -84,11 +88,34 @@ namespace UTMExpenses
             //}
             if (strMName.Text == null || strMName.Text == "")
             {
-                strMensajeError += "Missing Medicine Name.";
+                strMensajeError += "Missing Event Name.";
                 e.Cancel = true;
             }
+            if (strSDate.Text == null || strSDate.Text == "")
+            {
+                strMensajeError += "Missing Start Date.";
+                e.Cancel = true;
+            }
+            if (strEDate.Text == null || strEDate.Text == "")
+            {
+                strMensajeError += "Missing End Date.";
+                
+                e.Cancel = true;
+            }
+
             //// Validate - Medicine code length
             //if (strMCode.Text.Length != 5)
+            //{
+            //    strMensajeError += "Medicine Code shoud be 5 characters long";
+            //    e.Cancel = true;
+            //}
+            // Validate - Medicine code length
+            //string StartDate = strSDate.ToString();
+            //string EndDate = strEDate.ToString();
+
+            //DateTime parsedDate = DateTime.Parse(StartDate);
+            //DateTime parsedDate1 = DateTime.Parse(StartDate);
+            //if 
             //{
             //    strMensajeError += "Medicine Code shoud be 5 characters long";
             //    e.Cancel = true;
@@ -103,11 +130,20 @@ strMensajeError.ToString() + "</div>";
             }
             else
             {
+                // Validate - Medicine code length
+                string StartDate = strSDate.ToString();
+                string EndDate = strEDate.ToString();
+
+                DateTime parsedDate = DateTime.Parse(StartDate);
+                DateTime parsedDate1 = DateTime.Parse(StartDate);
+
 
                 // Assign values to columns before table insert considering
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
                 e.Values["RECORD_STATUS"] = "A";
+                e.Values["Start_Date"] = parsedDate;
+                e.Values["End_Date"] = parsedDate;
 
             }
         }

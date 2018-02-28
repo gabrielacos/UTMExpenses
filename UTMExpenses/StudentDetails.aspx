@@ -33,26 +33,152 @@ name) by major and year of study.-->
     <div class="col-lg-8">
         <asp:DetailsView ID="dvStudentsDetails" runat="server" Height="50px" Width="125px" CssClass="table table-bordered" DataSourceID="dsStudentDetails" AutoGenerateRows="False" DataKeyNames="StudentID" OnDataBound="dvStudentsDetails_DataBound" OnItemCommand="dvStudentsDetails_ItemCommand" OnItemDeleted="dvStudentsDetails_ItemDeleted" OnItemDeleting="dvStudentsDetails_ItemDeleting" OnItemInserting="dvStudentsDetails_ItemInserting" OnItemUpdated="dvStudentsDetails_ItemUpdated" OnItemUpdating="dvStudentsDetails_ItemUpdating" OnPreRender="dvStudentsDetails_PreRender" OnItemInserted="dvStudentsDetails_ItemInserted">
             <Fields>
-                <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="Lastname" HeaderText="Lastname" SortExpression="Lastname" />
-                <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
-                <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
-                <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
-                <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
-                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
-                <asp:BoundField DataField="Address_line1" HeaderText="Address_line1" SortExpression="Address_line1" />
-                <asp:BoundField DataField="Address_line2" HeaderText="Address_line2" SortExpression="Address_line2" />
-                <asp:BoundField DataField="Zipcode" HeaderText="Zipcode" SortExpression="Zipcode" />
-                <asp:BoundField DataField="Celular_Phone" HeaderText="Celular_Phone" SortExpression="Celular_Phone" />
-                <asp:BoundField DataField="Institutional_Email" HeaderText="Institutional_Email" SortExpression="Institutional_Email" />
-                <asp:BoundField DataField="Total_Amount_Received" HeaderText="Total_Amount_Received" SortExpression="Total_Amount_Received" />
-                <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
+                <asp:TemplateField HeaderText="StudentID" SortExpression="StudentID">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("StudentID") %>'></asp:Label>
                     </EditItemTemplate>
                     <InsertItemTemplate>
-                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtStudentID" runat="server" Text='<%# Bind("StudentID") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Bind("StudentID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Name" SortExpression="Name">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtFName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtFName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Lastname" SortExpression="Lastname">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtLName" runat="server" Text='<%# Bind("Lastname") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtLName" runat="server" Text='<%# Bind("Lastname") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label8" runat="server" Text='<%# Bind("Lastname") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="Initial" HeaderText="Initial" SortExpression="Initial" />
+                <asp:TemplateField HeaderText="DOB" SortExpression="DOB">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtDOB" runat="server" Text='<%# Bind("DOB") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtDOB" runat="server" Text='<%# Bind("DOB") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label9" runat="server" Text='<%# Bind("DOB") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Country" SortExpression="Country">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtCountry" runat="server" Text='<%# Bind("Country") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtCountry" runat="server" Text='<%# Bind("Country") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label10" runat="server" Text='<%# Bind("Country") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="State" SortExpression="State">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtState" runat="server" Text='<%# Bind("State") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtState" runat="server" Text='<%# Bind("State") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label11" runat="server" Text='<%# Bind("State") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="City" SortExpression="City">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label12" runat="server" Text='<%# Bind("City") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Address_line1" SortExpression="Address_line1">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtAddressLine" runat="server" Text='<%# Bind("Address_line1") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtAddressLine" runat="server" Text='<%# Bind("Address_line1") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label13" runat="server" Text='<%# Bind("Address_line1") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="Address_line2" HeaderText="Address_line2" SortExpression="Address_line2" />
+                <asp:TemplateField HeaderText="Zipcode" SortExpression="Zipcode">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtZipcode" runat="server" Text='<%# Bind("Zipcode") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtZipcode" runat="server" Text='<%# Bind("Zipcode") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label14" runat="server" Text='<%# Bind("Zipcode") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Celular_Phone" SortExpression="Celular_Phone">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtCelular" runat="server" Text='<%# Bind("Celular_Phone") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtCelular" runat="server" Text='<%# Bind("Celular_Phone") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label15" runat="server" Text='<%# Bind("Celular_Phone") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Institutional_Email" SortExpression="Institutional_Email">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:TextBox>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label16" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Total_Amount_Received" SortExpression="Total_Amount_Received">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label17" runat="server" Text='<%# Bind("Total_Amount_Received") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        <asp:Label ID="Label17" runat="server" Text='<%# Bind("Total_Amount_Received") %>'></asp:Label>
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label17" runat="server" Text='<%# Bind("Total_Amount_Received") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                       <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                                <asp:ListItem Value="A">Active</asp:ListItem>
+                                <asp:ListItem Value="I">Inactive</asp:ListItem>
+                            </asp:DropDownList>
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
