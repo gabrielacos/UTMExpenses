@@ -12,7 +12,8 @@ namespace UTMExpenses
         public string strForma = "EventDetails";
         public int struser;
         public string StrssMessage = "";
-        public string StrssCSS = "";
+        public string StrssCSS = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Validate if the user is logged in or not
@@ -110,7 +111,8 @@ namespace UTMExpenses
             if (IsPostBack == true)
             {
                 lblMessage.Text = StrssMessage;
-            }
+            }
+
         }
 
         protected void dvEventDetails_ItemCommand(object sender, DetailsViewCommandEventArgs e)
