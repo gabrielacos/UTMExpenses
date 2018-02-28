@@ -45,7 +45,11 @@
             <asp:ContentPlaceHolder ID="Body" runat="server">
             </asp:ContentPlaceHolder>
             <asp:ContentPlaceHolder ID="Footer" runat="server">
-                <div class="navbar-fixed-bottom panel-footer">AGJ Technologies, UTM 22/2/2018 </div>
+                <footer>
+                    <div class="navbar-fixed-bottom panel-footer"> AGJ Technologies, UTM 22/2/2018 </div>
+
+                </footer>
+                
             </asp:ContentPlaceHolder>
         </div>
     </form>
