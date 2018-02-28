@@ -73,26 +73,26 @@ namespace UTMExpenses
             string strMensajeError = "";
             e.Cancel = false;
             // Takes the TextBox value and assign it to local variable
-            TextBox strMCode = (TextBox)dvEventDetails.FindControl("txtEventID");
+            //TextBox strMCode = (TextBox)dvEventDetails.FindControl("txtEventID");
             TextBox strMName = (TextBox)dvEventDetails.FindControl("txtEventName");
             // Validate before insert
             // Validate - Missing Medicine code
-            if (strMCode.Text == null || strMCode.Text == "")
-            {
-                strMensajeError += "Missing Medicine Code.";
-                e.Cancel = true;
-            }
+            //if (strMCode.Text == null || strMCode.Text == "")
+            //{
+            //    strMensajeError += "Missing Medicine Code.";
+            //    e.Cancel = true;
+            //}
             if (strMName.Text == null || strMName.Text == "")
             {
                 strMensajeError += "Missing Medicine Name.";
                 e.Cancel = true;
             }
-            // Validate - Medicine code length
-            if (strMCode.Text.Length != 5)
-            {
-                strMensajeError += "Medicine Code shoud be 5 characters long";
-                e.Cancel = true;
-            }
+            //// Validate - Medicine code length
+            //if (strMCode.Text.Length != 5)
+            //{
+            //    strMensajeError += "Medicine Code shoud be 5 characters long";
+            //    e.Cancel = true;
+            //}
             // If prevoius validation throws an error, return the error
             if (e.Cancel == true)
             {
