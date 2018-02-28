@@ -77,13 +77,23 @@ namespace UTMExpenses
             TextBox strMName = (TextBox)dvEventDetails.FindControl("txtEventName");
             TextBox strSDate = (TextBox)dvEventDetails.FindControl("txtStartDate");
             TextBox strEDate = (TextBox)dvEventDetails.FindControl("txtEndDate");
-            TextBox strEvID = (TextBox)dvEventDetails.FindControl("txtEventID");
+            //DropDownList strLType = (DropDownList)dvEventDetails.FindControl("ddlLocationType");
+            //DropDownList strSession = (DropDownList)dvEventDetails.FindControl("ddlAcademisSession");
+            TextBox strOrgbyOrg = (TextBox)dvEventDetails.FindControl("txtOrgbyOrg");
+
+            //TextBox strEvID = (TextBox)dvEventDetails.FindControl("txtEventID");
 
             //Validate before insert
             //Validate - Missing EventID
-            if (strEvID.Text == null || strEvID.Text == "")
+            //if (strEvID.Text == null || strEvID.Text == "")
+            //{
+            //    strMensajeError += "Missing EventID.";
+            //    e.Cancel = true;
+            //}
+
+            if (strOrgbyOrg.Text == null || strOrgbyOrg.Text == "")
             {
-                strMensajeError += "Missing EventID.";
+                strMensajeError += "Missing Organized by Organization.";
                 e.Cancel = true;
             }
             if (strMName.Text == null || strMName.Text == "")
@@ -104,11 +114,11 @@ namespace UTMExpenses
             }
 
             // Validate - Medicine code length
-            if (strEvID.Text.Length != 5)
-            {
-                strMensajeError += "EventID shoud be 5 characters long";
-                e.Cancel = true;
-            }
+            //if (strEvID.Text.Length < 5)
+            //{
+            //    strMensajeError += "EventID shoud be 5 characters long";
+            //    e.Cancel = true;
+            //}
             //Validate - Medicine code length
             //string StartDate = strSDate.ToString();
             //string EndDate = strEDate.ToString();
@@ -141,6 +151,7 @@ strMensajeError.ToString() + "</div>";
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
                 e.Values["RECORD_STATUS"] = "A";
+                e.Values["Event_Status"] = "P";
                 //e.Values["Start_Date"] = parsedDate;
                 //e.Values["End_Date"] = parsedDate;
             }
@@ -300,15 +311,15 @@ strMensajeError.ToString() + "</div>";
             }
             else if (e.Exception.Message.Contains("Violation of PRIMARY KEY"))
             {
-                StrssMessage = "Product Code already exists. Please enter a NEW Product Code " + " </ div > ";
-                lblMessage.Text = "Product Code already exists. Please enter a NEWProduct Code " + " </ br > ";
+                StrssMessage = "EventID and Student ID already exists. Please enter a EventID and Student ID " + " </ div > ";
+                lblMessage.Text = "EventID and Student ID  already exists. Please enter a NEWProduct Code " + " </ br > ";
             }
             // Logic comes to this section if an error occurred during the INSERT
             // This IF evaluates the content of the error message to isolate
             // the Foreign key Violation
             else if (e.Exception.Message.Contains("conflicted with the FOREIGN KEY constraint"))
             {
-                lblMessage.Text = "Vendor Code not valid. Please enter a VALID Vendor Code " + " </ div > ";
+                lblMessage.Text = " StudentID not valid. Please enter a VALID Vendor Code " + " </ div > ";
             }
             else
             {
