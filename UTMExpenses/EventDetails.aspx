@@ -40,8 +40,25 @@
         <div class="col-lg-8">
             <asp:DetailsView ID="dvEventDetails" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" DataSourceID="dsEventDetails" AutoGenerateRows="False" DataKeyNames="EventID" OnItemDeleted="dvEventDetails_ItemDeleted" OnItemDeleting="dvEventDetails_ItemDeleting" OnItemInserting="dvEventDetails_ItemInserting" OnItemUpdated="dvEventDetails_ItemUpdated" OnItemUpdating="dvEventDetails_ItemUpdating" OnPreRender="dvEventDetails_PreRender" OnDataBound="dvEventDetails_DataBound" OnItemCommand="dvEventDetails_ItemCommand" OnItemInserted="dvEventDetails_ItemInserted" AllowPaging="True">
                 <Fields>
-                    <asp:BoundField DataField="EventID" HeaderText="EventID" SortExpression="EventID" InsertVisible="False" ReadOnly="True" />
-                    <asp:BoundField DataField="Event_Name" HeaderText="Event_Name" SortExpression="Event_Name" />
+                    <asp:TemplateField HeaderText="EventID" InsertVisible="False" SortExpression="EventID">
+                        <EditItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("EventID") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("EventID") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Event_Name" SortExpression="Event_Name">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtEventName" runat="server" Text='<%# Bind("Event_Name") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TtxtEventName" runat="server" Text='<%# Bind("Event_Name") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("Event_Name") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="OrganizedByOrganization" HeaderText="OrganizedByOrganization" SortExpression="OrganizedByOrganization" />
                     <asp:BoundField DataField="AcademicSession" HeaderText="AcademicSession" SortExpression="AcademicSession" />
                     <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />

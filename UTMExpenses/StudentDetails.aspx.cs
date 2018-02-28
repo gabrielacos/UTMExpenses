@@ -31,6 +31,13 @@ namespace UTMExpenses
                 Session["ssMessage"] = StrssMessage;
                 Response.Redirect("Default.aspx");
             }
+            {
+                if (Session["ssMessage"] != null)
+                {
+                    lblMessage.Text = Session["ssMessage"].ToString();
+                    Session["ssMessage"] = null;
+                }
+            }
         }
 
         protected void dvStudentsDetails_ItemDeleting(object sender, DetailsViewDeleteEventArgs e)

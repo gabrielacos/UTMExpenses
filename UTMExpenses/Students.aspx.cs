@@ -21,6 +21,13 @@ namespace UTMExpenses
                 Session["ssMessage"] = " Authorized users only; Please login";
                 Response.Redirect("Default.aspx");
             }
+            {
+                if (Session["ssMessage"] != null)
+                {
+                    lblMessage.Text = Session["ssMessage"].ToString();
+                    Session["ssMessage"] = null;
+                }
+            }
         }
 
         private void PageHeadings()
