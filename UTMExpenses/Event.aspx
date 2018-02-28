@@ -12,6 +12,7 @@ b. You must design a Report that lists All the Events by Type.-->
 
     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
         <div class="col-lg-10">
@@ -24,29 +25,28 @@ b. You must design a Report that lists All the Events by Type.-->
     </div>
 
     <script>$("#liEvents").addClass("active");</script>
-    <div class="row">
-
-        <div class="col-lg-8">
+    <div class="flex-container">
+        <div class="event-title">
             <h5>Select Events</h5>
         </div>
-
-        <div class="col-lg-4">
+        <div class="create-button">
             <asp:Button ID="btnCreateEvent" runat="server" Text="Create New Event" OnClick="btnCreateEvent_Click" CssClass="btn btn-primary" />
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <asp:DropDownList ID="ddlEvents" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlSpecificEvent" DataTextField="Event_Name" DataValueField="EventID">
-                <asp:ListItem Value="%">Select All</asp:ListItem>
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="ddlSpecificEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT EventID, Event_Name FROM UTM.TravelEvent"></asp:SqlDataSource>
+        <div class="drop-down dropdown">
+            <div class="dropdown show">
+                <asp:DropDownList ID="ddlEvents" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlSpecificEvent" DataTextField="Event_Name" DataValueField="EventID">
+                    <asp:ListItem Value="%">Select All</asp:ListItem>
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="ddlSpecificEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT EventID, Event_Name FROM UTM.TravelEvent"></asp:SqlDataSource>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-
-            <asp:GridView ID="gvEvents" CssClass="table table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource"  OnPreRender="gvEvents_PreRender" AllowPaging="True">
+    <div class="">
+        <div class="table table-hover table-striped grid-view">
+            <asp:GridView ID="gvEvents" CssClass="table table-hover table-striped " runat="server" UseAccessibleHeader="true" 
+                AutoGenerateColumns="False" DataKeyNames="EventID" DataSourceID="gvEventDataSource"  
+                OnPreRender="gvEvents_PreRender" AllowPaging="True">
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="EventID" DataNavigateUrlFormatString="EventDetails.aspx?ecode={0}&amp;act=&quot;r&quot;" Text="Select" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" InsertVisible="False" ReadOnly="True" SortExpression="EventID" />
@@ -125,6 +125,8 @@ b. You must design a Report that lists All the Events by Type.-->
             </asp:SqlDataSource>
         </div>
     </div>
+
+    
     <div class="row">
         <div class="col-lg-2">
             &nbsp;

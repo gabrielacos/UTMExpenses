@@ -7,7 +7,10 @@
     <title></title>
     <asp:ContentPlaceHolder ID="Stylesheet" runat="server">
     </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
