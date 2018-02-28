@@ -22,7 +22,7 @@
             &nbsp;
         </div>
 
-        <div class="table table-hover table-striped grid-view">
+        <div class="table table-hover ">
             <asp:DetailsView ID="dvTravelExpenseDetails" runat="server" Height="50px" Width="125px" CssClass="table table-bordered" AutoGenerateRows="False" DataKeyNames="StudentID,EventID" DataSourceID="dsTravelExpense" OnDataBound="dvTravelExpenseDetails_DataBound" OnItemCommand="dvTravelExpenseDetails_ItemCommand" OnItemDeleted="dvTravelExpenseDetails_ItemDeleted" OnItemDeleting="dvTravelExpenseDetails_ItemDeleting" OnItemInserted="dvTravelExpenseDetails_ItemInserted" OnItemInserting="dvTravelExpenseDetails_ItemInserting" OnItemUpdated="dvTravelExpenseDetails_ItemUpdated" OnItemUpdating="dvTravelExpenseDetails_ItemUpdating" OnPreRender="dvTravelExpenseDetails_PreRender">
                 <Fields>
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" Visible="False" />
