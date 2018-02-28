@@ -56,7 +56,7 @@ travel event.-->
                     <asp:BoundField DataField="creation_date" HeaderText="creation_date" SortExpression="creation_date" />
                     <asp:BoundField DataField="updated_by" HeaderText="updated_by" SortExpression="updated_by" />
                     <asp:BoundField DataField="update_date" HeaderText="update_date" SortExpression="update_date" />
-                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="TravelExpenseDetail.aspx?scode={0}&amp;ecode={1}&amp;act=u" Text="Edit" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="TravelExpenseDetails.aspx?scode={0}&amp;ecode={1}&amp;act=&quot;u&quot;" Text="Edit" />
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="dsStudenttravelExpense" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.StudentTravelEvent.update_date, UTM.Student.Name AS StudentName, UTM.TravelEvent.Event_Name AS EventName FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE (UTM.StudentTravelEvent.EventID LIKE '%' + @parmEventID + '%') AND (UTM.StudentTravelEvent.StudentID LIKE '%' + @parmStudentID + '%')">
