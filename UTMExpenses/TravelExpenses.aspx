@@ -9,11 +9,13 @@ b. You must allow edit the expense payment, date and status for a specific Stude
 travel event.-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
+     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
+    <script>$("#liStudents").addClass("active");</script>
     <div class="row">
         <div class="col-lg-10">
-            <h1>Students</h1>
+            <h1>Student Travel Expenses</h1>
         </div>
 
         <div class="col-lg-2">
@@ -21,7 +23,7 @@ travel event.-->
         </div>
     </div>
 
-    <script>$("#liStudents").addClass("active");</script>
+    
     <div class="row">
 
         <div class="col-lg-8">
@@ -33,13 +35,13 @@ travel event.-->
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <asp:DropDownList ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID">
+            <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle" >
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="DDDLdEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name FROM UTM.StudentTravelEvent INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID"></asp:SqlDataSource>
         </div>
         <div class="col-lg-6">
-            <asp:DropDownList ID="ddlStudent" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="StudentID">
+            <asp:DropDownList ID="ddlStudent" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="StudentID" CssClass="dropdown dropdown-toggle" >
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.Student.Name FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID"></asp:SqlDataSource>
@@ -47,7 +49,7 @@ travel event.-->
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <asp:GridView ID="gvStudentTravelExpense" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudenttravelExpense">
+            <asp:GridView ID="gvStudentTravelExpense" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudenttravelExpense" CssClass=" table table-bordered">
                 <Columns>
                     <asp:HyperLinkField Text="Select" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />

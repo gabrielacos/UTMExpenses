@@ -149,6 +149,7 @@ namespace UTMExpenses
             string studentcodecode = Request.QueryString["scode"];
             // Control lblTitle from the MasterPage
             Label lblTitle = Master.FindControl("lblTitle") as Label;
+            Label lblTitleInstructions = Master.FindControl("lblTitle") as Label;
             string valuefromParameter = string.Empty;
             // Evauates the action intended for this form
             if (!String.IsNullOrEmpty(actionID))
@@ -156,20 +157,20 @@ namespace UTMExpenses
                 if (actionID == "c")
                 {
                     lblTitle.Text = "Add New Event";
-                    lblInstructions.Text = "Fill all the required fields, then press Insert. To return to the Eventt list Press Cancel";
+                    lblTitleInstructions.Text = "Fill all the required fields, then press Insert. To return to the Eventt list Press Cancel";
                     dlStudentTravelEvents.ChangeMode(DetailsViewMode.Insert);
                 }
                 else if (actionID == "u")
                 {
                     lblTitle.Text = "Update Event";
-                    lblInstructions.Text = "Edit the appropiate fields, then press Updated To return to the  Event list Press Cancel";
+                    lblTitleInstructions.Text = "Edit the appropiate fields, then press Updated To return to the  Event list Press Cancel";
 
                     dlStudentTravelEvents.ChangeMode(DetailsViewMode.Edit);
                 }
                 else if (actionID == "d")
                 {
                     lblTitle.Text = "Delete Event";
-                    lblInstructions.Text = "Record to be deleted. Are you sure you want to delete this record? Press Delete to eliminate this record or Cancel to return to the Event list";
+                    lblTitleInstructions.Text = "Record to be deleted. Are you sure you want to delete this record? Press Delete to eliminate this record or Cancel to return to the Event list";
 
                     dlStudentTravelEvents.ChangeMode(DetailsViewMode.ReadOnly);
                 }

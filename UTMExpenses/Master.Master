@@ -29,7 +29,7 @@
             <div class="panel-heading">
                 <asp:Label ID="lblTitle" runat="server"></asp:Label>
 
-                <asp:Label ID="lblTitleInstructions" runat="server"></asp:Label>
+                <asp:Label ID="lblTitleInstructions" runat="server"  Text=""></asp:Label>
             </div>
 
             <asp:ContentPlaceHolder ID="Message" runat="server">

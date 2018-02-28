@@ -11,6 +11,7 @@ b. You must allow to add a New Event for a specific Student, delete and modify a
 existing Event for a Student, and calculate and display total count of the displayed-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
+     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">

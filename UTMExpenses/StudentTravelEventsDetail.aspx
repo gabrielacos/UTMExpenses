@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
     <asp:Label runat="server" ID="lblMessage" CssClass="label label-info"></asp:Label>
-    <asp:Label runat="server" ID="lblInstructions" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
