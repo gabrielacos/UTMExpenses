@@ -12,7 +12,8 @@ namespace UTMExpenses
         public string strForma = "EventDetails";
         public int struser;
         public string StrssMessage = "";
-        public string StrssCSS = "";
+        public string StrssCSS = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Validate if the user is logged in or not
@@ -29,6 +30,13 @@ namespace UTMExpenses
                 StrssMessage = " Authorized users only; Please login";
                 Session["ssMessage"] = StrssMessage;
                 Response.Redirect("Default.aspx");
+            }
+            {
+                if (Session["ssMessage"] != null)
+                {
+                    lblMessage.Text = Session["ssMessage"].ToString();
+                    Session["ssMessage"] = null;
+                }
             }
         }
 
@@ -61,12 +69,48 @@ namespace UTMExpenses
 
         protected void dvEventDetails_ItemInserting(object sender, DetailsViewInsertEventArgs e)
         {
-            //StrssMessage = "Item Inserted Successfully";
-            //StrssCSS = "alert-success";
-            ////Asignar valor a las parametros del metodo WriteLogProc
-            //strEvento = "ItemInserted";
-            //WriteLognRedirect();
+            // Variable to accumulate the errors before displaying them
+            string strMensajeError = "";
+            e.Cancel = false;
+            // Takes the TextBox value and assign it to local variable
+            TextBox strMCode = (TextBox)dvEventDetails.FindControl("txtEventID");
+            TextBox strMName = (TextBox)dvEventDetails.FindControl("txtEventName");
+            // Validate before insert
+            // Validate - Missing Medicine code
+            if (strMCode.Text == null || strMCode.Text == "")
+            {
+                strMensajeError += "Missing Medicine Code.";
+                e.Cancel = true;
+            }
+            if (strMName.Text == null || strMName.Text == "")
+            {
+                strMensajeError += "Missing Medicine Name.";
+                e.Cancel = true;
+            }
+            // Validate - Medicine code length
+            if (strMCode.Text.Length != 5)
+            {
+                strMensajeError += "Medicine Code shoud be 5 characters long";
+                e.Cancel = true;
+            }
+            // If prevoius validation throws an error, return the error
+            if (e.Cancel == true)
+            {
+                lblMessage.Text = "Insert Error! <br />" +
+strMensajeError.ToString() + "</div>";
+                StrssMessage = "Insert Error! <br />" +
+                strMensajeError.ToString() + "</div>";
+            }
+            else
+            {
+
+                // Assign values to columns before table insert considering
+                // this data will NOT be available to input on the detail form
+                // Record Status is A for new records
+                e.Values["RECORD_STATUS"] = "A";
+            }
         }
+
 
         //Validacion para TextBox
         protected void dvEventDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
@@ -109,8 +153,10 @@ namespace UTMExpenses
         {
             if (IsPostBack == true)
             {
-                lblMessage.Text = StrssMessage;
-            }
+                lblMessage.Text = StrssMessage.ToString();
+
+            }
+
         }
 
         protected void dvEventDetails_ItemCommand(object sender, DetailsViewCommandEventArgs e)
@@ -137,8 +183,8 @@ namespace UTMExpenses
             }
             if (dvEventDetails.CurrentMode == DetailsViewMode.Edit)
             {
-                //((TextBox)dvEventDetails.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
-                //((TextBox)dvEventDetails.FindControl("txtUpdatedate")).Text = date.ToString();
+                ((TextBox)dvEventDetails.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
+                ((TextBox)dvEventDetails.FindControl("txtUpdatedate")).Text = date.ToString();
             }
         }
 
@@ -212,11 +258,45 @@ namespace UTMExpenses
 
         protected void dvEventDetails_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
         {
-            StrssMessage = "Item Inserted Successfully";
-            StrssCSS = "alert-success";
-            //Asignar valor a las parametros del metodo WriteLogProc
-            strEvento = "ItemInserted";
-            WriteLognRedirect();
+            if (e.Exception == null && e.AffectedRows == 1)
+            {
+                StrssMessage = "Item Inserted Successfully";
+                StrssCSS = "alert-success";
+                //Asignar valor a las parametros del metodo WriteLogProc
+                strEvento = "ItemInserted";
+                WriteLognRedirect();
+            }
+            else if (e.Exception.Message.Contains("Violation of PRIMARY KEY"))
+            {
+                
+                    StrssMessage = "Product Code already exists. Please enter a NEW Product Code " + " </ div > ";
+                    lblMessage.Text = "Product Code already exists. Please enter a NEWProduct Code " + " </ br > ";
+            }
+            // Logic comes to this section if an error occurred during the INSERT
+            // This IF evaluates the content of the error message to isolate
+            // the Foreign key Violation
+            else if (e.Exception.Message.Contains("conflicted with the FOREIGN KEY constraint"))
+                {
+                    lblMessage.Text = "Vendor Code not valid. Please enter a VALID Vendor Code " + " </ div > ";
+                }
+                else
+                {
+                    // Coding to Show the system error to the user
+                    // e.Exception.Message carries the system error
+                    // Coding to Show the system error to the user
+                    // e.Exception.Message carries the system error
+                    StrssMessage = e.Exception.Message + "</div>";
+                    lblMessage.Text = e.Exception.Message.ToString();
+
+                }
+                // Change the property ExceptionHandled to true
+                // This will tell the system that the error was handled and avoid crash
+                e.ExceptionHandled = true;
+                // Keep the form in InsertMode to let the user continue working with
+                // the form and correct the error
+                e.KeepInInsertMode = true;
+
+
+            }
         }
     }
-}

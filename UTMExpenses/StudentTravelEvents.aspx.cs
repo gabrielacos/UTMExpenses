@@ -6,12 +6,19 @@ namespace UTMExpenses
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ////// Display Error Message when the user is not logged in
-            ////if (Session["ssUsr"] == null)
-            ////{
-            ////    Session["ssMessage"] = " Authorized users only; Please login";
-            ////    Response.Redirect("Default.aspx");
-            ////}
+            // Display Error Message when the user is not logged in
+            if (Session["ssUsr"] == null)
+            {
+                Session["ssMessage"] = " Authorized users only; Please login";
+                Response.Redirect("Default.aspx");
+            }
+            {
+                if (Session["ssMessage"] != null)
+                {
+                    lblMessage.Text = Session["ssMessage"].ToString();
+                    Session["ssMessage"] = null;
+                }
+            }
         }
 
         protected void gvStudentEvents_PreRender(object sender, EventArgs e)
