@@ -30,7 +30,7 @@ name) by major and year of study.-->
             &nbsp;
         </div>
     </div>
-    <div class="table table-hover table-striped grid-view">
+    <div class="table table-hover">
         <asp:DetailsView ID="dvStudentsDetails" runat="server" Height="50px" Width="125px" CssClass="table table-bordered" DataSourceID="dsStudentDetails" AutoGenerateRows="False" DataKeyNames="StudentID" OnDataBound="dvStudentsDetails_DataBound" OnItemCommand="dvStudentsDetails_ItemCommand" OnItemDeleted="dvStudentsDetails_ItemDeleted" OnItemDeleting="dvStudentsDetails_ItemDeleting" OnItemInserting="dvStudentsDetails_ItemInserting" OnItemUpdated="dvStudentsDetails_ItemUpdated" OnItemUpdating="dvStudentsDetails_ItemUpdating" OnPreRender="dvStudentsDetails_PreRender" OnItemInserted="dvStudentsDetails_ItemInserted">
             <Fields>
                 <asp:TemplateField HeaderText="StudentID" SortExpression="StudentID">
