@@ -53,7 +53,7 @@
                             <asp:TextBox ID="txtEventName" runat="server" Text='<%# Bind("Event_Name") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TtxtEventName" runat="server" Text='<%# Bind("Event_Name") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtEventName" runat="server" Text='<%# Bind("Event_Name") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label10" runat="server" Text='<%# Bind("Event_Name") %>'></asp:Label>
