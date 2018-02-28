@@ -11,8 +11,11 @@
             <h1 style="text-align: center;">Welcome to University Travel Management - Expenses</h1>
             <h2 style="text-align: center;">
                 Here you can view, add and edit students, Travel Expenses and Travel Events and acces Reports. <br />
-                <asp:Image ID="Image3" runat="server" Height="400px" ImageUrl="Resources/Logo.png" Width="400px" />
+                
             </h2>
+            <div class="logo">
+               <asp:Image ID="Image3" runat="server" Height="400px" ImageUrl="Resources/Logo.png" Width="400px" />
+            </div>
         </div>
     </div>
 </asp:Content>

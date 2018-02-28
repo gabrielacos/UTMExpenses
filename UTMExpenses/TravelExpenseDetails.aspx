@@ -14,18 +14,22 @@
             <asp:Image ID="Image1" runat="server" Height="60px" Width="59px" ImageUrl="~/Resources/Logo.png" />
         </div>
     </div>
+
+
+
     <div class="row">
         <div class="col-lg-2">
             &nbsp;
         </div>
-        <div class="col-lg-8">
+
+        <div class="table table-hover table-striped grid-view">
             <asp:DetailsView ID="dvTravelExpenseDetails" runat="server" Height="50px" Width="125px" CssClass="table table-bordered" AutoGenerateRows="False" DataKeyNames="StudentID,EventID" DataSourceID="dsTravelExpense" OnDataBound="dvTravelExpenseDetails_DataBound" OnItemCommand="dvTravelExpenseDetails_ItemCommand" OnItemDeleted="dvTravelExpenseDetails_ItemDeleted" OnItemDeleting="dvTravelExpenseDetails_ItemDeleting" OnItemInserted="dvTravelExpenseDetails_ItemInserted" OnItemInserting="dvTravelExpenseDetails_ItemInserting" OnItemUpdated="dvTravelExpenseDetails_ItemUpdated" OnItemUpdating="dvTravelExpenseDetails_ItemUpdating" OnPreRender="dvTravelExpenseDetails_PreRender">
                 <Fields>
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" Visible="False" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" Visible="False" />
                     <asp:TemplateField HeaderText="Expense_Status" SortExpression="Expense_Status">
                         <EditItemTemplate>
-                             <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Expense_Status") %>'>
                                 <asp:ListItem Value="P">Pending</asp:ListItem>
                                 <asp:ListItem Value="D">Done</asp:ListItem>
                             </asp:DropDownList>
@@ -87,19 +91,19 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Record_Status" SortExpression="Record_Status">
                         <EditItemTemplate>
-                             <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
                                 <asp:ListItem Value="A">Active</asp:ListItem>
                                 <asp:ListItem Value="I">Inactive</asp:ListItem>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                              <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
+                            <asp:DropDownList ID="ddlRecordStatus" runat="server" Text='<%# Bind("Record_Status") %>'>
                                 <asp:ListItem Value="A">Active</asp:ListItem>
                                 <asp:ListItem Value="I">Inactive</asp:ListItem>
                             </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label6"  runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
+                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("Record_Status") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="StudentTravel_Status" HeaderText="StudentTravel_Status" SortExpression="StudentTravel_Status" />
@@ -123,10 +127,13 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
         </div>
+
         <div class="col-lg-2">
             &nbsp;
         </div>
     </div>
+
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Footer" runat="server">
 </asp:Content>

@@ -37,7 +37,7 @@
         <div class="col-lg-2">
             &nbsp;
         </div>
-        <div class="col-lg-8">
+        <div class="table table-hover table-striped grid-view">
             <asp:DetailsView ID="dvEventDetails" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" DataSourceID="dsEventDetails" AutoGenerateRows="False" DataKeyNames="EventID" OnItemDeleted="dvEventDetails_ItemDeleted" OnItemDeleting="dvEventDetails_ItemDeleting" OnItemInserting="dvEventDetails_ItemInserting" OnItemUpdated="dvEventDetails_ItemUpdated" OnItemUpdating="dvEventDetails_ItemUpdating" OnPreRender="dvEventDetails_PreRender" OnDataBound="dvEventDetails_DataBound" OnItemCommand="dvEventDetails_ItemCommand" OnItemInserted="dvEventDetails_ItemInserted" AllowPaging="True">
                 <Fields>
                     <asp:TemplateField HeaderText="EventID" InsertVisible="False" SortExpression="EventID">
