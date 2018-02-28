@@ -27,13 +27,13 @@ travel event.-->
 
     <div class="flex-container">
         <div class="col-lg-6">
-            <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle">
+            <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle" AppendDataBoundItems="True">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="DDDLdEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name FROM UTM.StudentTravelEvent INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID"></asp:SqlDataSource>
         </div>
         <div class="col-lg-6">
-            <asp:DropDownList ID="ddlStudent" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="StudentID" CssClass="dropdown dropdown-toggle">
+            <asp:DropDownList ID="ddlStudent" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="StudentID" CssClass="dropdown dropdown-toggle" AppendDataBoundItems="True">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.Student.Name FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID"></asp:SqlDataSource>
@@ -44,7 +44,9 @@ travel event.-->
         <div class="table table-hover table-striped grid-view">
             <asp:GridView ID="gvStudentTravelExpense" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudenttravelExpense" CssClass=" table table-bordered">
                 <Columns>
-                    <asp:HyperLinkField Text="Select" DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="StudentTravelEventsDetail.aspx?scode={0}&amp;ecode={1}&amp;act=r" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="TravelExpenseDetails.aspx?scode={0}&amp;ecode={1}&amp;act=&quot;r&quot;" Text="Select" />
+                    <asp:BoundField DataField="StudentName" HeaderText="StudentName" SortExpression="StudentName" />
+                    <asp:BoundField DataField="EventName" HeaderText="EventName" SortExpression="EventName" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" />
                     <asp:BoundField DataField="ExpenseAmount" HeaderText="ExpenseAmount" SortExpression="ExpenseAmount" />
@@ -54,10 +56,10 @@ travel event.-->
                     <asp:BoundField DataField="creation_date" HeaderText="creation_date" SortExpression="creation_date" />
                     <asp:BoundField DataField="updated_by" HeaderText="updated_by" SortExpression="updated_by" />
                     <asp:BoundField DataField="update_date" HeaderText="update_date" SortExpression="update_date" />
-                    <asp:HyperLinkField Text="Edit" />
+                    <asp:HyperLinkField DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="TravelExpenseDetail.aspx?scode={0}&amp;ecode={1}&amp;act=u" Text="Edit" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="dsStudenttravelExpense" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.StudentTravelEvent.update_date FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE  ( UTM.StudentTravelEvent.EventID LIKE  '%' + @parmEventID + '%') and ( UTM.StudentTravelEvent.StudentID LIKE  '%' + @parmStudentID + '%')">
+            <asp:SqlDataSource ID="dsStudenttravelExpense" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.StudentTravelEvent.EventID, UTM.StudentTravelEvent.ExpenseAmount, UTM.StudentTravelEvent.Expense_Status, UTM.StudentTravelEvent.Record_Status, UTM.StudentTravelEvent.created_by, UTM.StudentTravelEvent.creation_date, UTM.StudentTravelEvent.updated_by, UTM.StudentTravelEvent.update_date, UTM.Student.Name AS StudentName, UTM.TravelEvent.Event_Name AS EventName FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID WHERE (UTM.StudentTravelEvent.EventID LIKE '%' + @parmEventID + '%') AND (UTM.StudentTravelEvent.StudentID LIKE '%' + @parmStudentID + '%')">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlEvents" Name="parmEventID" PropertyName="SelectedValue" />
                     <asp:ControlParameter ControlID="ddlStudent" Name="parmStudentID" PropertyName="SelectedValue" />

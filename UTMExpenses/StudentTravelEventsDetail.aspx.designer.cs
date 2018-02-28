@@ -31,13 +31,22 @@ namespace UTMExpenses {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// dlStudentTravelEvents control.
+        /// dvStudentTravelEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView dlStudentTravelEvents;
+        protected global::System.Web.UI.WebControls.DetailsView dvStudentTravelEvent;
+        
+        /// <summary>
+        /// dsStudentTravelEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsStudentTravelEvents;
         
         /// <summary>
         /// dsStudentID control.
@@ -56,14 +65,5 @@ namespace UTMExpenses {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsEvents;
-        
-        /// <summary>
-        /// dsTravelEvents control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsTravelEvents;
     }
 }
