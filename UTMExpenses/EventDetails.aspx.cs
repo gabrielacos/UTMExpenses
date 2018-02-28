@@ -131,18 +131,18 @@ strMensajeError.ToString() + "</div>";
             else
             {
                 // Validate - Medicine code length
-                string StartDate = strSDate.ToString();
-                string EndDate = strEDate.ToString();
+                //string StartDate = strSDate.ToString();
+                //string EndDate = strEDate.ToString();
 
-                DateTime parsedDate = DateTime.Parse(StartDate);
-                DateTime parsedDate1 = DateTime.Parse(StartDate);
+                //DateTime parsedDate = DateTime.Parse(StartDate);
+                //DateTime parsedDate1 = DateTime.Parse(StartDate);
 
                 // Assign values to columns before table insert considering
                 // this data will NOT be available to input on the detail form
                 // Record Status is A for new records
                 e.Values["RECORD_STATUS"] = "A";
-                e.Values["Start_Date"] = parsedDate;
-                e.Values["End_Date"] = parsedDate;
+                //e.Values["Start_Date"] = parsedDate;
+                //e.Values["End_Date"] = parsedDate;
             }
         }
 

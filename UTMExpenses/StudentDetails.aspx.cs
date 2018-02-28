@@ -150,7 +150,7 @@ namespace UTMExpenses
             //    e.Cancel = true;
             //}
             // Validate -Sudent ID length
-            if (strEmail.Text.Length != 8)
+            if (strEmail.Text.Length < 8)
 
             {
                 strMensajeError += "Enter a valid Email Address";
@@ -186,8 +186,9 @@ strMensajeError.ToString() + "</div>";
             TextBox strAddrLin = (TextBox)dvStudentsDetails.FindControl("txtAddressLine");
             TextBox strCelular = (TextBox)dvStudentsDetails.FindControl("txtCelular");
             TextBox strZcode = (TextBox)dvStudentsDetails.FindControl("txtZipcode");
-            TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtEventName");
+            TextBox strLName = (TextBox)dvStudentsDetails.FindControl("txtLname");
             TextBox strEmail = (TextBox)dvStudentsDetails.FindControl("txtEmail");
+            TextBox strSID = (TextBox)dvStudentsDetails.FindControl("txtSID");
 
             // Validate before insert
             //Validate - Missing StudentID
@@ -237,19 +238,19 @@ strMensajeError.ToString() + "</div>";
                 strMensajeError += "Missing Zip Code.";
                 e.Cancel = true;
             }
-            if (strEmail.Text == null || strEmail.Text == "")
-            {
-                strMensajeError += "Missing Email Address.";
-                e.Cancel = true;
-            }
+            //if (strEmail.Text == null || strEmail.Text == "")
+            //{
+            //    strMensajeError += "Missing Email Address.";
+            //    e.Cancel = true;
+            //}
 
-            // Validate -Sudent Email
-            if (strEmail.Text.Length != 8)
+            //// Validate -Sudent Email
+            //if (strEmail.Text.Length != 8)
 
-            {
-                strMensajeError += "Enter a valid Email Address";
-                e.Cancel = true;
-            }
+            //{
+            //    strMensajeError += "Enter a valid Email Address";
+            //    e.Cancel = true;
+            //}
             // If prevoius validation throws an error, return the error
             if (e.Cancel == true)
             {

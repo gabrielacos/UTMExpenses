@@ -27,13 +27,13 @@ travel event.-->
 
     <div class="flex-container">
         <div class="col-lg-6">
-            <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle" >
+            <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="DDDLdEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name FROM UTM.StudentTravelEvent INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID"></asp:SqlDataSource>
         </div>
         <div class="col-lg-6">
-            <asp:DropDownList ID="ddlStudent" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="StudentID" CssClass="dropdown dropdown-toggle" >
+            <asp:DropDownList ID="ddlStudent" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="StudentID" CssClass="dropdown dropdown-toggle">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.StudentID, UTM.Student.Name FROM UTM.StudentTravelEvent INNER JOIN UTM.Student ON UTM.StudentTravelEvent.StudentID = UTM.Student.StudentID"></asp:SqlDataSource>
@@ -44,7 +44,7 @@ travel event.-->
         <div class="table table-hover table-striped grid-view">
             <asp:GridView ID="gvStudentTravelExpense" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudenttravelExpense" CssClass=" table table-bordered">
                 <Columns>
-                    <asp:HyperLinkField Text="Select" />
+                    <asp:HyperLinkField Text="Select" DataNavigateUrlFields="StudentID,EventID" DataNavigateUrlFormatString="StudentTravelEventsDetail.aspx?scode={0}&amp;ecode={1}&amp;act=r" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
                     <asp:BoundField DataField="EventID" HeaderText="EventID" ReadOnly="True" SortExpression="EventID" />
                     <asp:BoundField DataField="ExpenseAmount" HeaderText="ExpenseAmount" SortExpression="ExpenseAmount" />
