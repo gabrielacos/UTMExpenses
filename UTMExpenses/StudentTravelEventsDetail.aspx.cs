@@ -381,24 +381,16 @@ strMensajeError.ToString() + "</div>";
                 SqlConnection conn_string = new
                 SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
                 // Establecer el comando de SQL que se va a ejecutar
-                SqlCommand sql_comm = new SqlCommand("UPDATE UTM.Student SET Total_Amount_Received = sum(StudentTravelEvent.ExpenseAmount FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID WHERE(UTM.Student.StudentID = @StudentID))  ; ", conn_string);
+                SqlCommand sql_comm = new SqlCommand("Update UTM.Student  Set  Total_Amount_Received = SUM(UTM.StudentTravelEvent.ExpenseAmount) FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID and(UTM.Student.StudentID = @StudentID)  ; ", conn_string);
                 // Asignar valor a los parametros
                 sql_comm.Parameters.AddWithValue("@StudentID", strSname);
                 // Abrir la conexion
+
                 conn_string.Open();
 
                 // Cerrar la conexion
                 conn_string.Close();
             }
-
-            SqlConnection connection = new SqlConnection("connctrionstringdbUMTExpenses");
-
-            string query = "select sum(Score) from SaveResult where RegNo='" + regNo + "' group by RegNo";
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            double total = (double)cmd.ExecuteScalar();
-            connection.Close();
-            return total;
         }
 
         protected void dvStudentTravelEvent_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
