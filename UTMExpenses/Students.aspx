@@ -23,9 +23,9 @@
     <div class="event-title">
         <h3>Select Student</h3>
     </div>
-    <div class="container">
+    <div class="flex-container">
 
-        <asp:Button CssClass="btn btn-info" ID="btnInformeEstudiante" runat="server" OnClick="btnInformeEstudiante_Click" text-="Alphabetical Form" />
+        <asp:Button CssClass="btn btn-primary" ID="btnInformeEstudiante" runat="server" OnClick="btnInformeEstudiante_Click" text-="Alphabetical Form" />
     </div>
 
     <div class="flex-container">
@@ -80,11 +80,12 @@
     </div>
     <div class="row">
         <div class="col-lg-2">
-            &nbsp;
+         <h2>  <asp:Label runat="server" CssClass="label label-info" Text="Total Student Displayed "></asp:Label></h2>
         </div>
         <!-- Text and a Label Control to display totals -->
         <div class="col-lg-8">
-            <asp:Label ID="lblTotal" runat="server"></asp:Label>
+
+          <h2>  <asp:Label ID="lblTotal" CssClass="label label-info" runat="server"></asp:Label></h2>
         </div>
         <div class="col-lg-2">
             &nbsp;

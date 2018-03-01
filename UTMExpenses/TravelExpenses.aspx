@@ -26,7 +26,7 @@ travel event.-->
         <h3>Select Student</h3>
     </div>
     <div class="flex-container">
-        <asp:Button ID="btnReportTravelExpense" runat="server" Text="Travel Expense Report" CssClass="btn btn-info" OnClick="btnReportTravelExpense_Click" />
+        <asp:Button ID="btnReportTravelExpense" runat="server" Text="Travel Expense Report" CssClass="btn btn-primary" OnClick="btnReportTravelExpense_Click" />
     </div>
     <div class="flex-container">
 

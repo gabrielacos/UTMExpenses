@@ -58,7 +58,7 @@ namespace UTMExpenses
         }
 
         // Funcion para Validar el user y password
-        public static Boolean ValidateChild(string EventID)
+        public static Boolean ValidateChildEvent(string EventID)
         {
             // Establecer la informacion de la conexion
             SqlConnection conn_string = new

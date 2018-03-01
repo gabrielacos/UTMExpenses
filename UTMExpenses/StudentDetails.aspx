@@ -9,12 +9,14 @@ b. You must design a Report that lists All the Students (alphabetical order by l
 name) by major and year of study.-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
+    <div class="container">
     <div class="row">
-        <div class="col-lg-12">
-            <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
+            <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-danger"></asp:Label>
+        </div>
+            <div class="row">
             <asp:Label ID="lblInstructions" runat="server" Text="" CssClass="label label-info"></asp:Label>
         </div>
-    </div>
+  </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
@@ -44,7 +46,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("StudentID") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Name" SortExpression="Name">
+                <asp:TemplateField HeaderText="First Name" SortExpression="Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtFName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -55,7 +57,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Lastname" SortExpression="Lastname">
+                <asp:TemplateField HeaderText="Last Name" SortExpression="Lastname">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtLname" runat="server" Text='<%# Bind("Lastname") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -77,7 +79,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label18" runat="server" Text='<%# Bind("Initial") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="DOB" SortExpression="DOB">
+                <asp:TemplateField HeaderText="Date Of Birth" SortExpression="DOB">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtDOB" runat="server" Text='<%# Bind("DOB") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -88,7 +90,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label17" runat="server" Text='<%# Bind("DOB") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Address_line1" SortExpression="Address_line1">
+                <asp:TemplateField HeaderText="Address Line1" SortExpression="Address_line1">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtAddressLine" runat="server" Text='<%# Bind("Address_line1") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -99,7 +101,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label16" runat="server" Text='<%# Bind("Address_line1") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="Address_line2" HeaderText="Address_line2" SortExpression="Address_line2" />
+                <asp:BoundField DataField="Address_line2" HeaderText="Address line2" SortExpression="Address_line2" />
                 <asp:TemplateField HeaderText="City" SortExpression="City">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
@@ -133,7 +135,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label13" runat="server" Text='<%# Bind("Country") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Zipcode" SortExpression="Zipcode">
+                <asp:TemplateField HeaderText="Zip Code" SortExpression="Zipcode">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtZipcode" runat="server" Text='<%# Bind("Zipcode") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -144,7 +146,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label12" runat="server" Text='<%# Bind("Zipcode") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Celular_Phone" SortExpression="Celular_Phone">
+                <asp:TemplateField HeaderText="Cellular Phone" SortExpression="Celular_Phone">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtCelular" runat="server" Text='<%# Bind("Celular_Phone") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -155,7 +157,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label11" runat="server" Text='<%# Bind("Celular_Phone") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Institutional_Email" SortExpression="Institutional_Email">
+                <asp:TemplateField HeaderText="Institutional Email" SortExpression="Institutional_Email">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -166,7 +168,7 @@ name) by major and year of study.-->
                         <asp:Label ID="Label10" runat="server" Text='<%# Bind("Institutional_Email") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Total_Amount_Received" SortExpression="Total_Amount_Received">
+                <asp:TemplateField HeaderText="Total Amount Received" SortExpression="Total_Amount_Received">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtTotalAmountReceived" runat="server" Text='<%# Bind("Total_Amount_Received") %>'></asp:TextBox>
                     </EditItemTemplate>

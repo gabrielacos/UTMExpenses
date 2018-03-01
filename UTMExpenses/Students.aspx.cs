@@ -11,6 +11,8 @@ namespace UTMExpenses
             ValidateLogin();
             // Display Page Headings
             PageHeadings();
+
+            lblTotal.Text = gvStudents.Rows.Count.ToString();
         }
 
         private void ValidateLogin()

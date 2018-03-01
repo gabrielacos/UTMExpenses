@@ -20,6 +20,7 @@ namespace UTMExpenses
             {
                 Session["ssMessage"] = " Authorized users only; Please login";
                 Response.Redirect("Default.aspx");
+                lblTotal.Text = gvEvents.Rows.Count.ToString();
             }
         }
 

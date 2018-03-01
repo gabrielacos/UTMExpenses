@@ -31,15 +31,6 @@ namespace UTMExpenses {
         protected global::System.Web.UI.WebControls.Image Image3;
         
         /// <summary>
-        /// btnCreateEvent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateEvent;
-        
-        /// <summary>
         /// btnEventLocationType control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace UTMExpenses {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEventLocationType;
+        
+        /// <summary>
+        /// btnCreateEvent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateEvent;
         
         /// <summary>
         /// ddlEvents control.

@@ -22,7 +22,7 @@
                         <a class="navbar-brand" href="Default.aspx">UTM Expenses</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li><a href="Default.aspx">Informes</a></li>
+                        <li><a href="Default.aspx">Home</a></li>
                         <li><a href="Event.aspx" id="liEvent">Event</a></li>
                         <li><a href="Students.aspx" id="liStudents">Students</a></li>
                         <li><a href="TravelExpenses.aspx" id="liTravelExpenses">Travel Expense</a></li>
@@ -31,9 +31,9 @@
                 </div>
             </nav>
             <div class="panel-heading">
-                <asp:Label ID="lblTitle" runat="server"></asp:Label>
+                <asp:Label ID="lblTitle" CssClass="label label-info" runat="server"></asp:Label>
 
-                <asp:Label ID="lblTitleInstructions" runat="server"  Text=""></asp:Label>
+                <asp:Label ID="lblTitleInstructions" CssClass="lael label-info" runat="server"  Text=""></asp:Label>
             </div>
 
             <asp:ContentPlaceHolder ID="Message" runat="server">

@@ -109,6 +109,20 @@ strMensajeError.ToString() + "</div>";
                 ((TextBox)dvStudentTravelEvent.FindControl("txtcreatedby")).Text = ssUserName.ToString();
                 ((TextBox)dvStudentTravelEvent.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
                 ((TextBox)dvStudentTravelEvent.FindControl("txtUpdatedate")).Text = date.ToString();
+
+                // Establecer la informacion de la conexion
+                SqlConnection conn_string = new
+                SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
+                // Establecer el comando de SQL que se va a ejecutar
+                SqlCommand sql_comm = new SqlCommand("SELECT count(EventID) FROM UTM.StudentTravelEvents where EventID = @EventID ; ", conn_string);
+                // Asignar valor a los parametros
+                ////sql_comm.Parameters.AddWithValue("@EventID", EventID);
+                // Abrir la conexion
+                conn_string.Open();
+                // Ejecutar el comando de SQL y asignar el resultado a una variable Entera 32
+                Int32 intChildCount = Convert.ToInt32(sql_comm.ExecuteScalar());
+                // Cerrar la conexion
+                conn_string.Close();
             }
         }
 
@@ -243,7 +257,7 @@ strMensajeError.ToString() + "</div>";
             }
             //verify if is a parent with child
             string Ecode = Request.QueryString["Ecode"].ToString();
-            if (!UTMExpenses.GlobalMethods.ValidateChild(Ecode))
+            if (!UTMExpenses.GlobalMethods.ValidateChildEvent(Ecode))
             {
                 StrssMessage = "<B>Record wont be deleted. This Event was sold on one or more invoices</ B > ";
                 e.Cancel = true;

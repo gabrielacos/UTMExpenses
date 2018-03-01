@@ -21,7 +21,7 @@
         </div>
 
         <div class="table table-hover ">
-            <asp:DetailsView ID="dvStudentTravelEvent" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudentTravelEvents" OnDataBound="dvStudentTravelEvent_DataBound" OnItemCommand="dvStudentTravelEvent_ItemCommand" OnItemDeleted="dvStudentTravelEvent_ItemDeleted" OnItemDeleting="dvStudentTravelEvent_ItemDeleting" OnItemInserted="dvStudentTravelEvent_ItemInserted" OnItemInserting="dvStudentTravelEvent_ItemInserting" OnItemUpdated="dvStudentTravelEvent_ItemUpdated">
+            <asp:DetailsView ID="dvStudentTravelEvent" CssClass="table table-bordered" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="StudentID,EventID" DataSourceID="dsStudentTravelEvents" OnDataBound="dvStudentTravelEvent_DataBound" OnItemCommand="dvStudentTravelEvent_ItemCommand" OnItemDeleted="dvStudentTravelEvent_ItemDeleted" OnItemDeleting="dvStudentTravelEvent_ItemDeleting" OnItemInserted="dvStudentTravelEvent_ItemInserted" OnItemInserting="dvStudentTravelEvent_ItemInserting" OnItemUpdated="dvStudentTravelEvent_ItemUpdated">
                 <Fields>
                     <asp:TemplateField HeaderText="StudentID" SortExpression="StudentID">
                         <EditItemTemplate>

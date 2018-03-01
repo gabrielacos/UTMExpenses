@@ -13,8 +13,8 @@
                 <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsstudentexpense" />
             </DataSources>
         </LocalReport>
-    </rsweb:ReportViewer>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="UTMExpenses.dsStudentTableAdapters.Student_ExpenseTableAdapter"></asp:ObjectDataSource>
+</rsweb:ReportViewer>
+<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="UTMExpenses.dsStudentTableAdapters.Student_ExpenseTableAdapter"></asp:ObjectDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Footer" runat="server">
 </asp:Content>

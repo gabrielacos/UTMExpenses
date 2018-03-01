@@ -29,12 +29,13 @@ b. You must design a Report that lists All the Events by Type.-->
         <h3>Select Events:</h3>
     </div>
     <div class="flex-container">
+        <asp:Button ID="btnEventLocationType" runat="server" Text="Event by Location Report" OnClick="btnEventReport" CssClass="btn btn-primary" />
+    </div>
+    <div class="flex-container">
         <div class="create-button">
             <asp:Button ID="btnCreateEvent" runat="server" Text="Create New Event" OnClick="btnCreateEvent_Click" CssClass="btn btn-primary" />
         </div>
-        <div class="flex-container">
-            <asp:Button ID="btnEventLocationType" runat="server" Text="Event by Location Report" OnClick="btnEventReport" CssClass="btn btn-primary" />
-        </div>
+
         <div class="drop-down dropdown">
             <div class="dropdown show">
                 <asp:DropDownList ID="ddlEvents" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlSpecificEvent" DataTextField="Event_Name" DataValueField="EventID">
@@ -134,25 +135,32 @@ b. You must design a Report that lists All the Events by Type.-->
             &nbsp;
         </div>
         <!-- Text and a Label Control to display totals -->
-        <div class="col-lg-8">
-            <h5>Event Count:</h5>
-            <asp:Label ID="lblTotal" runat="server"></asp:Label>
-        </div>
-        <div class="col-lg-2">
-            &nbsp;
-        </div>
-    </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <h2>
+                    <asp:Label runat="server" CssClass="label label-info" Text="Total Student Displayed "></asp:Label></h2>
+            </div>
+            <!-- Text and a Label Control to display totals -->
+            <div class="col-lg-8">
 
-    <div class="row">
-        <div class="col-lg-12">
-            &nbsp;
+                <h2>
+                    <asp:Label ID="lblTotal" CssClass="label label-info" runat="server"></asp:Label></h2>
+            </div>
+            <div class="col-lg-2">
+                &nbsp;
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            &nbsp;
+
+        <div class="row">
+            <div class="col-lg-12">
+                &nbsp;
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                &nbsp;
+            </div>
+        </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Footer" runat="server">
 </asp:Content>

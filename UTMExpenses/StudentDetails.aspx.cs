@@ -51,7 +51,7 @@ namespace UTMExpenses
             }
             //verify if is a parent with child
             string Ecode = Request.QueryString["Ecode"].ToString();
-            if (!UTMExpenses.GlobalMethods.ValidateChild(Ecode))
+            if (!GlobalMethods.ValidateChildEvent(Ecode))
             {
                 StrssMessage = "<B>Record wont be deleted. This Event was sold on one or more invoices</ B > ";
                 e.Cancel = true;
