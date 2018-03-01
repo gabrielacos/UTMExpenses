@@ -37,7 +37,7 @@
                 <asp:DropDownList ID="ddlStudent" runat="server" AppendDataBoundItems="True" AutoPostBack="True" DataSourceID="ddlDSdropdownlist" DataTextField="Name" DataValueField="StudentID">
                     <asp:ListItem Value="%">Select All</asp:ListItem>
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="ddlDSdropdownlist" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT StudentID, Name, Lastname, Initial FROM UTM.Student"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="ddlDSdropdownlist" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT DISTINCT StudentID, Name, Lastname, Initial FROM UTM.Student"></asp:SqlDataSource>
             </div>
         </div>
     </div>

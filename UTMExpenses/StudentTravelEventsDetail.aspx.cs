@@ -110,19 +110,18 @@ strMensajeError.ToString() + "</div>";
                 ((TextBox)dvStudentTravelEvent.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
                 ((TextBox)dvStudentTravelEvent.FindControl("txtUpdatedate")).Text = date.ToString();
 
-                // Establecer la informacion de la conexion
-                SqlConnection conn_string = new
-                SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
-                // Establecer el comando de SQL que se va a ejecutar
-                SqlCommand sql_comm = new SqlCommand("SELECT count(EventID) FROM UTM.StudentTravelEvents where EventID = @EventID ; ", conn_string);
-                // Asignar valor a los parametros
-                ////sql_comm.Parameters.AddWithValue("@EventID", EventID);
-                // Abrir la conexion
-                conn_string.Open();
-                // Ejecutar el comando de SQL y asignar el resultado a una variable Entera 32
-                Int32 intChildCount = Convert.ToInt32(sql_comm.ExecuteScalar());
-                // Cerrar la conexion
-                conn_string.Close();
+                //// Establecer la informacion de la conexion
+                //SqlConnection conn_string = new
+                //SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
+                //// Establecer el comando de SQL que se va a ejecutar
+                //SqlCommand sql_comm = new SqlCommand("UPDATE UTM.Student SET Total_Amount_Received = sum(StudentTravelEvent.ExpenseAmount FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID WHERE(UTM.Student.StudentID = @StudentID))  ; ", conn_string);
+                //// Asignar valor a los parametros
+                //sql_comm.Parameters.AddWithValue("@EventID", strSname);
+                //// Abrir la conexion
+                //conn_string.Open();
+
+                //// Cerrar la conexion
+                //conn_string.Close();
             }
         }
 
@@ -378,7 +377,28 @@ strMensajeError.ToString() + "</div>";
                 //((TextBox)dvStudentTravelEvent.FindControl("txtcreatedby")).Text = ssUserName.ToString();
                 //((TextBox)dvStudentTravelEvent.FindControl("txtUpdatedby")).Text = ssUserName.ToString();
                 //((TextBox)dvStudentTravelEvent.FindControl("txtUpdatedate")).Text = date.ToString();
+                //// Establecer la informacion de la conexion
+                SqlConnection conn_string = new
+                SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["connctrionstringdbUMTExpenses"].ConnectionString);
+                // Establecer el comando de SQL que se va a ejecutar
+                SqlCommand sql_comm = new SqlCommand("UPDATE UTM.Student SET Total_Amount_Received = sum(StudentTravelEvent.ExpenseAmount FROM UTM.Student INNER JOIN UTM.StudentTravelEvent ON UTM.Student.StudentID = UTM.StudentTravelEvent.StudentID WHERE(UTM.Student.StudentID = @StudentID))  ; ", conn_string);
+                // Asignar valor a los parametros
+                sql_comm.Parameters.AddWithValue("@StudentID", strSname);
+                // Abrir la conexion
+                conn_string.Open();
+
+                // Cerrar la conexion
+                conn_string.Close();
             }
+
+            SqlConnection connection = new SqlConnection("connctrionstringdbUMTExpenses");
+
+            string query = "select sum(Score) from SaveResult where RegNo='" + regNo + "' group by RegNo";
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            double total = (double)cmd.ExecuteScalar();
+            connection.Close();
+            return total;
         }
 
         protected void dvStudentTravelEvent_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
