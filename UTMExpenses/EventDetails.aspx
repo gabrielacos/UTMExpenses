@@ -77,14 +77,14 @@
                             <asp:DropDownList ID="ddlEventType" runat="server" Text='<%# Bind("EventType") %>'>
                                 <asp:ListItem Value="cla">Academic </asp:ListItem>
                                 <asp:ListItem Value="aso">Concert</asp:ListItem>
-                                   <asp:ListItem Value="spo">Sporting Event</asp:ListItem>
+                                <asp:ListItem Value="spo">Sporting Event</asp:ListItem>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <InsertItemTemplate>
-                             <asp:DropDownList ID="ddlEventType" runat="server" Text='<%# Bind("EventType") %>'>
+                            <asp:DropDownList ID="ddlEventType" runat="server" Text='<%# Bind("EventType") %>'>
                                 <asp:ListItem Value="cla">Academic </asp:ListItem>
                                 <asp:ListItem Value="aso">Concert</asp:ListItem>
-                                   <asp:ListItem Value="spo">Sporting Event</asp:ListItem>
+                                <asp:ListItem Value="spo">Sporting Event</asp:ListItem>
                             </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>

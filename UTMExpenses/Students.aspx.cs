@@ -49,5 +49,10 @@ namespace UTMExpenses
         {
             Response.Redirect("StudentDetails.aspx?ecode=&act=c");
         }
+
+        protected void btnInformeEstudiante_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("StudentAlphabetical.aspx");
+        }
     }
 }

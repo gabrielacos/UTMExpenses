@@ -40,8 +40,6 @@ namespace UTMExpenses
             }
         }
 
-      
-
         protected void gvEvents_PreRender(object sender, EventArgs e)
         {
             lblTotal.Text = gvEvents.Rows.Count.ToString();
@@ -50,6 +48,11 @@ namespace UTMExpenses
         protected void btnCreateEvent_Click(object sender, EventArgs e)
         {
             Response.Redirect("EventDetails.aspx?ecode=&act=c");
+        }
+
+        protected void btnEventReport(object sender, EventArgs e)
+        {
+            Response.Redirect("EventbyType.aspx");
         }
     }
 }

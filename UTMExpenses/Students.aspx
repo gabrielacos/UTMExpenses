@@ -1,15 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Students.aspx.cs" Inherits="UTMExpenses.Details" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Stylesheet" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
-     <div class="row">
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+
+    <div class="row">
         <div class="">
-            <h1 style="text-align:center;">Students
-                 <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            <h1 style="text-align: center;">Students
+
+                <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
             </h1>
         </div>
     </div>
@@ -17,6 +22,10 @@
     <script>$("#liStudents").addClass("active");</script>
     <div class="event-title">
         <h3>Select Student</h3>
+    </div>
+    <div class="container">
+
+        <asp:Button CssClass="btn btn-info" ID="btnInformeEstudiante" runat="server" OnClick="btnInformeEstudiante_Click" text-="Alphabetical Form" />
     </div>
 
     <div class="flex-container">
@@ -32,11 +41,10 @@
             </div>
         </div>
     </div>
-    
 
     <div class="">
         <div class="table table-hover table-striped grid-view">
-            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" CssClass="table table-bordered"  AllowPaging="True">
+            <asp:GridView ID="gvStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="dsUTMStudents" CssClass="table table-bordered" AllowPaging="True">
                 <Columns>
                     <asp:HyperLinkField DataNavigateUrlFields="StudentID" DataNavigateUrlFormatString="StudentDetails.aspx?ecode={0}&amp;act=&quot;r&quot;" Text="Select" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />

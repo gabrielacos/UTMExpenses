@@ -17,19 +17,23 @@ b. You must design a Report that lists All the Events by Type.-->
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
         <div class="">
-            <h1 style="text-align:center;">Events
-                 <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            <h1 style="text-align: center;">Events
+
+                <asp:Image ID="Image3" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
             </h1>
         </div>
     </div>
 
-    <script>$("#liEvents").addClass("active");</script>  
+    <script>$("#liEvents").addClass("active");</script>
     <div class="event-title">
-            <h3>Select Events:</h3>
-        </div>               
+        <h3>Select Events:</h3>
+    </div>
     <div class="flex-container">
         <div class="create-button">
             <asp:Button ID="btnCreateEvent" runat="server" Text="Create New Event" OnClick="btnCreateEvent_Click" CssClass="btn btn-primary" />
+        </div>
+        <div class="flex-container">
+            <asp:Button ID="btnEventLocationType" runat="server" Text="Event by Location Report" OnClick="btnEventReport" CssClass="btn btn-primary" />
         </div>
         <div class="drop-down dropdown">
             <div class="dropdown show">
@@ -132,7 +136,7 @@ b. You must design a Report that lists All the Events by Type.-->
         <!-- Text and a Label Control to display totals -->
         <div class="col-lg-8">
             <h5>Event Count:</h5>
-            <asp:Label ID="lblTotal" runat="server" ></asp:Label>
+            <asp:Label ID="lblTotal" runat="server"></asp:Label>
         </div>
         <div class="col-lg-2">
             &nbsp;

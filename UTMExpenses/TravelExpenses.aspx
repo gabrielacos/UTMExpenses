@@ -9,14 +9,15 @@ b. You must allow edit the expense payment, date and status for a specific Stude
 travel event.-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
-     <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
+    <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <script>$("#liStudents").addClass("active");</script>
     <div class="row">
         <div class="">
-            <h1 style="text-align:center">Student Travel Expenses
-             <asp:Image ID="Image2" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
+            <h1 style="text-align: center">Student Travel Expenses
+
+                <asp:Image ID="Image2" runat="server" Height="80px" ImageUrl="Resources/Logo.png" Width="79px" />
             </h1>
         </div>
     </div>
@@ -24,10 +25,13 @@ travel event.-->
     <div class="event-title">
         <h3>Select Student</h3>
     </div>
-
     <div class="flex-container">
+        <asp:Button ID="btnReportTravelExpense" runat="server" Text="Travel Expense Report" CssClass="btn btn-info" OnClick="btnReportTravelExpense_Click" />
+    </div>
+    <div class="flex-container">
+
         <div class="col-lg-6">
-            <asp:DropDownList  ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle" AppendDataBoundItems="True">
+            <asp:DropDownList ID="ddlEvents" runat="server" AutoPostBack="True" DataSourceID="DDDLdEvent" DataTextField="Event_Name" DataValueField="EventID" CssClass="dropdown dropdown-toggle" AppendDataBoundItems="True">
                 <asp:ListItem Value="%">Select All</asp:ListItem>
             </asp:DropDownList>
             <asp:SqlDataSource ID="DDDLdEvent" runat="server" ConnectionString="<%$ ConnectionStrings:connctrionstringdbUMTExpenses %>" SelectCommand="SELECT UTM.StudentTravelEvent.EventID, UTM.TravelEvent.Event_Name FROM UTM.StudentTravelEvent INNER JOIN UTM.TravelEvent ON UTM.StudentTravelEvent.EventID = UTM.TravelEvent.EventID"></asp:SqlDataSource>
