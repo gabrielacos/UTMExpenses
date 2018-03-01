@@ -12,6 +12,7 @@ existing Event for a Student, and calculate and display total count of the displ
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Message" runat="server">
      <asp:Label ID="lblMessage" runat="server" Text="" CssClass="label label-info"></asp:Label>
+    <script>$("#student-event").addClass("active");</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body" runat="server">
     <div class="row">
@@ -22,7 +23,6 @@ existing Event for a Student, and calculate and display total count of the displ
         </div>
     </div>
 
-    <script>$("#liTravelEvents").addClass("active");</script>
     <div class="row">
         <div class="col-lg-8">
             <h3>Select Events</h3>
