@@ -161,7 +161,7 @@ strMensajeError.ToString() + "</div>";
         protected void dvEventDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
         {
             string strErrorMessage = null;
-            string strCreatedBy;
+
             if (e.NewValues[2] == null)
             {
                 strErrorMessage += "Quantity on Hand cannot be blank";

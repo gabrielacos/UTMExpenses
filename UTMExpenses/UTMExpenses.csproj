@@ -148,6 +148,7 @@
     <Content Include="dsStudent.xss">
       <DependentUpon>dsStudent.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Resources\Logo.png" />
     <Content Include="Scripts\bootstrap.js" />
