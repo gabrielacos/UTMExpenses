@@ -28,7 +28,7 @@ namespace UTMExpenses
 
         protected void btnReportTravelExpense_Click(object sender, EventArgs e)
         {
-            Response.Redirect("StudentTravelExpense.aspx")
+            Response.Redirect("StudentTravelExpense.aspx");
         }
     }
 }
